@@ -1,0 +1,73 @@
+/* Ajustes Componentes */
+
+.componente{
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 30px;
+    height: 80vh;
+    width: 80vw;
+}
+
+/* Barra de busqueda */
+.search-group {
+    border-radius: 35px;
+    overflow: hidden; 
+}
+
+.form-control {
+    height: 50px;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    border-right: none; 
+}
+
+.form-control:focus{
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+
+/* FIltros */
+
+.filtros{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 15px;
+    border-radius: 35px;
+    background-color: #62c669;
+    padding: 15px;
+}
+
+.selectores{
+    overflow: hidden;
+    height: auto;
+    width: 300px;
+    border-radius: 35px;
+}
+
+/* RESULTADOS BUSQUEDA */
+
+.resultados{
+    margin-top: 15px;
+    flex-grow: 1;
+
+    border-radius: 35px;
+    background-color: azure;
+    padding: 25px 40px;
+}
+
+.encabezado{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    color: #62c669;
+}
+
+.colegio{flex: 6;}
+.departamento{ flex: 3;}
+.ciudad{ flex: 2;}
+.estado{ flex: 1;}

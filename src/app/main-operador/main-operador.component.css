@@ -1,0 +1,67 @@
+/* AJUSTES PAGINA */
+
+.pagina{
+    display: flex;
+    flex-direction: row;
+
+    height: 100vh;
+    width: 100vw;
+    background-color: #a3a3a3;
+}
+
+/* Logo Menu */
+
+.menu{
+    margin-top: 15px;
+    margin-left: 15px;
+    height: 55px;
+}
+
+/* Componentes */
+
+.componentes{
+    margin-top: 70px;
+    margin-left: 70px;
+}
+
+/* Deslizador */
+
+.deslizador{
+    position:fixed;
+    display:flex;
+    flex-direction: column;
+    transform: translateX(-250px);
+    transition: transform 0.3s ease-in-out;
+    top: 0;
+    height: 100vh ;
+    background-color: #62c669;
+    padding: 10px;
+    width: 17%;
+}
+
+.close-button{
+    position: absolute;
+    right: 0;
+    margin-right: 8px;
+    height: 30px;
+    width: 30px;
+}
+
+.texto-dislizador{
+    margin-top: 25%;
+    color: azure;
+}
+
+.nombre-operador{
+    margin-bottom: 45px;
+}
+
+.btn-salir{
+    margin-top: auto;
+    margin-bottom: 15px;
+    background-color: #466645;
+    color: azure;
+    border: 0px;
+    border-radius: 15px;
+    height: 37px;
+}

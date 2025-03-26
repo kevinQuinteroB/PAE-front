@@ -1,0 +1,105 @@
+.pagina{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    background-color: #a3a3a3;
+}
+
+.niñoportada{
+    height: 100vh;
+}
+
+.logo-pae{
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.login{
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.bloque-login{
+    display: flex;
+    flex-direction: column;
+    background-color: #c4c4c4;
+    border-radius: 25px;
+    padding: 50px;
+}
+
+.credenciales{
+    border-radius: 25px;
+    height: 50px;
+}
+
+.credenciales::placeholder{
+    color: #29882f;
+    opacity: 0.625;
+}
+
+.credenciales:focus{
+    border: 2px solid #62c669 !important;
+    box-shadow: none !important; 
+}
+
+.boton-ingresar{
+    background-color: #62c669;
+    color: white;
+    font-family:sans-serif;
+    font-weight: bold;
+    border-color:transparent;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 25px;
+}
+
+.boton-ingresar:hover{
+    background-color: #5bb161;
+}
+
+.boton-ingresar:active{
+    flex-grow: 1;
+    background-color: #b8e4bb;
+    color: #62c669;
+}
+
+.recuperar-boton{
+    color: #29882f;
+}
+
+.recuperar-boton:active{
+    color: #62c669;
+}
+
+.g-3{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+
+    .login{
+        background: url('/assets/niñoportada.png') no-repeat center center;
+        background-size: cover;
+    }
+    .niñoportada {
+        display: none; /* Ocultar imagen en móviles */
+    }
+
+    .bloque-login{
+        max-width: 90vw;
+        max-height: 90vh;
+        background-color: rgba(163, 163, 163, 0.6);
+    }
+
+    .logo-pae{
+        max-width: 100%;
+    }
+}
