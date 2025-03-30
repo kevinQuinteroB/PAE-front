@@ -12,8 +12,8 @@
     <img id="closeButton" class="close-button" src="assets/logo_X.png" #closeButton>
     <div class="texto-dislizador">
         <h3 class="nombre-operador">Nombre <br> Operador</h3>
-        <h5 (click)="closeActiveComponent()">Inicio</h5>
-        <h5>Quejas</h5>
+        <h5 (click)="closeActiveComponent()" class="opciones-deslizador">Inicio</h5>
+        <h5 (click)="setActiveComponent('quejas-operador')" class="opciones-deslizador">Quejas</h5>
     </div>
-    <button class="btn-salir">SALIR</button>
+    <button class="btn-salir" (click)="salir()">SALIR</button>
 </div>

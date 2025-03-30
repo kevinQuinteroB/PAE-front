@@ -1,4 +1,6 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, Renderer2  } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-main-operador',
@@ -14,7 +16,7 @@ export class MainOperadorComponent implements AfterViewInit{
   @ViewChild('menuButton') menuButton!: ElementRef;
   @ViewChild('closeButton') closeButton!: ElementRef;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private router: Router) {}
 
   ngAfterViewInit() {
     if (!this.menuButton || !this.closeButton || !this.deslizador) {
@@ -53,4 +55,11 @@ export class MainOperadorComponent implements AfterViewInit{
   closeActiveComponent(){
     this.activeComponent = "operador-busqueda";
   }
+
+  /* SALIR DE LA SESION */
+
+  salir() {
+    this.router.navigate(['/login']);
+  }
+
 }

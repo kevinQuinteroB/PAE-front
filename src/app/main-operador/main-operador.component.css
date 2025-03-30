@@ -67,4 +67,9 @@
     border: 0px;
     border-radius: 15px;
     height: 37px;
+    cursor: pointer;
+}
+
+.opciones-deslizador{
+    cursor: pointer;
 }
