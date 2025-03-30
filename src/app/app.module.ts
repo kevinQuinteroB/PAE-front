@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MainOperadorComponent } from './main-operador/main-operador.component';
 import { OperadorBusquedaComponent } from './operador-busqueda/operador-busqueda.component';
+import { QuejasOperadorComponent } from './quejas-operador/quejas-operador.component';
+import { InfoColegioOperadorComponent } from './info-colegio-operador/info-colegio-operador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainOperadorComponent,
-    OperadorBusquedaComponent
+    OperadorBusquedaComponent,
+    QuejasOperadorComponent,
+    InfoColegioOperadorComponent
   ],
   imports: [
     BrowserModule,
