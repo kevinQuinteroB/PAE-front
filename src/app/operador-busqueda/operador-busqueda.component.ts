@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class OperadorBusquedaComponent {
 
+  /* LOGICA PARA ABRIR Y CERRAR LOS FILTROS */
+
+  activeFiltros: boolean = false;
+
+  setActiveFiltros(): boolean{
+    return this.activeFiltros = !this.activeFiltros;
+  }
 }

@@ -7,14 +7,14 @@
                 <img src="assets/logo_Lupa.png" alt="Buscar" style="height: 20px;">
             </button>
             
-            <button class="input-group-text search-btn" type="button">
+            <button class="input-group-text search-btn" type="button" (click)="setActiveFiltros()">
                 <img src="assets/logo_Ajustes.png" alt="Ajustes" style="height: 20px;">
             </button>
         </div>
     </form>
 
 
-    <div class="filtros">
+    <div class="filtros" *ngIf="setActiveFiltros()">
         <div class="selectores">
             <select class="form-select" aria-label="Default select example">
                 <option value="" selected disabled>Departamento</option>

@@ -8,6 +8,8 @@ import { Component, ElementRef, ViewChild, AfterViewInit, Renderer2  } from '@an
 })
 export class MainOperadorComponent implements AfterViewInit{
 
+                          /*LOGICA  DESLIZADOR */
+
   @ViewChild('deslizador') deslizador!: ElementRef;
   @ViewChild('menuButton') menuButton!: ElementRef;
   @ViewChild('closeButton') closeButton!: ElementRef;
@@ -20,7 +22,6 @@ export class MainOperadorComponent implements AfterViewInit{
       return;
     }
 
-    // Agregando eventos usando ViewChild
     this.menuButton.nativeElement.addEventListener('click', () => {
       this.deslizador.nativeElement.style.transform = 'translateX(0)';
     });
@@ -33,13 +34,13 @@ export class MainOperadorComponent implements AfterViewInit{
       const targetElement = event.target as HTMLElement;
       if (this.deslizador && !this.deslizador.nativeElement.contains(targetElement) &&
           !this.menuButton.nativeElement.contains(targetElement)) {
-        // Cierra el deslizador si se hace clic fuera de él
         this.deslizador.nativeElement.style.transform = 'translateX(-250px)';
       }
     });
 
   }
 
+  /* LOGICA DE ABRIR Y CERRAR COMPONENTES */
 
   activeComponent: String | null = "operador-busqueda";
 
@@ -50,6 +51,6 @@ export class MainOperadorComponent implements AfterViewInit{
     return this.activeComponent == component;
   }
   closeActiveComponent(){
-    this.activeComponent = null;
+    this.activeComponent = "operador-busqueda";
   }
 }
