@@ -5,8 +5,11 @@
 
     </div>
 
-    <div>
-        <button>Realizar entrega</button>
-        <button>Regresar</button>
+    <div class="botones">
+        <button class="btn btn-success" (click)="hacerPedido()" [disabled]="pedido">Realizar entrega</button>
+        <button class="btn btn-outline-light">Regresar</button>
     </div>
+</div>
+<div class="hacar-pedido">
+    <app-pedido-operador *ngIf="pedido" [pedido]="pedido" (cerrar)="pedido = false"></app-pedido-operador>
 </div>

@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class InfoColegioOperadorComponent {
 
+  pedido: boolean = false;
+
+  hacerPedido(){
+    return this.pedido = true;
+  }
+
 }

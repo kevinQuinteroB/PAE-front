@@ -13,6 +13,7 @@ import { ColegioBusquedaComponent } from './colegio-busqueda/colegio-busqueda.co
 import { QuejasColegioComponent } from './quejas-colegio/quejas-colegio.component';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { EncuestaColegioComponent } from './encuesta-colegio/encuesta-colegio.component';
+import { PedidoOperadorComponent } from './pedido-operador/pedido-operador.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EncuestaColegioComponent } from './encuesta-colegio/encuesta-colegio.co
     ColegioBusquedaComponent,
     QuejasColegioComponent,
     EstudiantesComponent,
-    EncuestaColegioComponent
+    EncuestaColegioComponent,
+    PedidoOperadorComponent
   ],
   imports: [
     BrowserModule,

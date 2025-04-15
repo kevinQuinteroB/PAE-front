@@ -21,3 +21,40 @@
     border-radius: 35px;
     margin-bottom: 15px;
 }
+
+.botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 8px 25px;
+}
+
+.btn-success{
+    background-color: #71ff84;
+    color: #9a9a9a;
+    border: 0;
+    border-radius: 20px;
+}
+.btn-outline-light{
+    background-color: #ffffff;
+    color: #9a9a9a;
+    border: 0;
+    border-radius: 20px;
+}
+
+.btn-outline-light:active{
+    color: #646464;
+}
+
+.hacar-pedido{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
