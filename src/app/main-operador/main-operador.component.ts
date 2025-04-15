@@ -52,9 +52,6 @@ export class MainOperadorComponent implements AfterViewInit{
   isActive(component: string): boolean{
     return this.activeComponent == component;
   }
-  closeActiveComponent(){
-    this.activeComponent = "operador-busqueda";
-  }
 
   /* SALIR DE LA SESION */
 

@@ -1,0 +1,23 @@
+/* AJUSTE DE MODULO */
+
+.modulo{
+    display: flex;
+    flex-direction: column;
+
+    height: 85vh;
+    width: 80vw;
+}
+
+.nombre-colegio{
+    color: azure;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.info-col{
+    background-color: azure;
+    width: 100%;
+    height: 60vh;
+    border-radius: 35px;
+    margin-bottom: 15px;
+}
