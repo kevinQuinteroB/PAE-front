@@ -4,13 +4,13 @@
         <div class="bloque-login">
             <img class="logo-pae" src="assets/PAE_Logo.png" alt="Logo PAE">
 
-            <form class="g-3 needs-validation" novalidate>
+            <form [formGroup]="loginUser"  (ngSubmit)="login()" class="g-3 needs-validation" novalidate >
                 <div class="input-group mb-3">
-                    <input type="email" id="email" class="form-control credenciales" placeholder="Correo" aria-label="Username" aria-describedby="addon-wrapping" required>
+                    <input formControlName="name" type="name" id="name" class="form-control credenciales" placeholder="Correo" aria-label="Username" aria-describedby="addon-wrapping" required>
                 </div>
                 
                 <div class="input-group mb-3">
-                    <input type="password" id="contrasena" class="form-control credenciales" placeholder="Contraseña" aria-label="Username" aria-describedby="addon-wrapping" required>
+                    <input formControlName="password" type="password" id="contrasena" class="form-control credenciales" placeholder="Contraseña" aria-label="Username" aria-describedby="addon-wrapping" required>
                 </div>
                 <button type="submit" class="boton-ingresar"> INGRESAR </button>
                 <button type="button" class="btn btn-link recuperar-boton">Recuperar Contraseña</button>

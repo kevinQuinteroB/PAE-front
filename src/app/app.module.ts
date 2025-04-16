@@ -15,6 +15,9 @@ import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { EncuestaColegioComponent } from './encuesta-colegio/encuesta-colegio.component';
 import { PedidoOperadorComponent } from './pedido-operador/pedido-operador.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,9 @@ import { PedidoOperadorComponent } from './pedido-operador/pedido-operador.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
