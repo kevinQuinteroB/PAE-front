@@ -11,7 +11,17 @@ export class PedidoOperadorComponent {
 
   @Output() cerrar = new EventEmitter<void>();
 
+  cantidadElementos: number = 1;
   cerrarPedido() { 
     this.cerrar.emit();
+  }
+
+  aggElemento(){
+    this.cantidadElementos = this.cantidadElementos + 1;
+  }
+  deleteElemento(){
+    if(this.cantidadElementos != 1){
+      this.cantidadElementos = this.cantidadElementos - 1;
+    }
   }
 }

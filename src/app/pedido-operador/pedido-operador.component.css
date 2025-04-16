@@ -17,6 +17,9 @@
 }
 
 .lista{
+    display: flex;
+    flex-direction: column;
+    position: relative;
     background-color: azure;
     width: 100%;
     height: 82%;
@@ -24,8 +27,82 @@
     margin-bottom: 15px;
 }
 
+.botones-entregas{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-lista{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    background-color: #797979;
+    color: #fcfcfc;
+    border: 0px;
+    margin: 5px;
+}
+
+.btn-lista:hover{
+    background-color: #a3a3a3;
+}
+
 .botones{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.btn-entrega{
+    padding: 10px 20px;
+    background-color: #fcfcfc;
+    color: #9a9a9a;
+    border: 0;
+    border-radius: 20px;
+}
+
+.btn-entrega:hover{
+    background-color: #9c9c9c;
+    color: #ffffff;
+}
+
+.btn-cancelar{
+    padding: 10px 20px;
+    background-color: #ff0b0b;
+    color: #ffffff;
+    border: 0;
+    border-radius: 20px;
+}
+
+.btn-cancelar:hover{
+    background-color: #c20c0c;
+    color: #ffffff;
+}
+
+.alimentos{
+    overflow-y: auto;
+    height: 85%;
+}
+
+.btn-fecha-entrega{
+    display: flex;
+    position: relative;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    margin: auto 25px 15px 25px;
+    background-color: #797979;
+    color: #ffffff;
+    border: 0;
+    border-radius: 15px;
+    padding: 7px;
+}
+
+.btn-fecha-entrega:hover{
+    background-color: #a3a3a3;
 }

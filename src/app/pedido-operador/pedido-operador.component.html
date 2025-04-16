@@ -2,10 +2,20 @@
     <h2 class="titulo"> PEDIDO </h2>
 
     <div class="lista">
+        <div class="alimentos">
+            <div *ngFor="let item of [].constructor(cantidadElementos); let i = index" >
+                Hola
+            </div>
+            <div class="botones-entregas">
+                <button class="btn-lista" (click)="aggElemento()">+</button>
+                <button class="btn-lista" (click)="deleteElemento()" >-</button>
+            </div>
+        </div>   
+        <button class="btn-fecha-entrega">FECHA DE ENTREGA</button>
     </div>
 
     <div class="botones">
-        <button>Hacer Entrega</button>
-        <button (click)="cerrarPedido()">Cancelar</button>
+        <button class="btn-entrega">Hacer Entrega</button>
+        <button (click)="cerrarPedido()" class="btn-cancelar">Cancelar</button>
     </div>
 </div>
