@@ -32,7 +32,11 @@ export class UserService {
       );
   }
 
+  listarColegios(): Observable<User[]>{
+    return this.HttpClient.get<User[]>(`${this.api}/user/list`)
+  }
+
   getUser(): User {
-    return JSON.parse(localStorage.getItem('User') || '{}');
+    return JSON.parse(localStorage.getItem('UserGuardando') || '{}');
   }
 }

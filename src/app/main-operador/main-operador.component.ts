@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { UserService } from '../services/user.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-main-operador',
@@ -16,7 +17,37 @@ export class MainOperadorComponent implements AfterViewInit{
   @ViewChild('menuButton') menuButton!: ElementRef;
   @ViewChild('closeButton') closeButton!: ElementRef;
 
-  constructor(private renderer: Renderer2, private router: Router) {}
+  constructor(
+    private renderer: Renderer2,
+    private router: Router,
+    private userService: UserService,
+  ) {}
+
+operadorRegistrado!: User;
+listaColegios!: User[];
+
+ngOnInit() {
+  this.operadorRegistrado = this.userService.getUser();
+
+  this.userService.listarColegios().subscribe({
+    next: (usuarios) => {
+      this.listaColegios = usuarios.map(colegio => {
+        const partes = colegio.address?.split(',') || [];
+        return {
+          ...colegio,
+          calle: partes[0]?.trim() || '',
+          ciudad: partes[1]?.trim() || '',
+          departamento: partes[2]?.trim() || ''
+        };
+      });
+      console.log(this.listaColegios);
+    },
+    error: (err) => {
+      console.error('Error al obtener colegios:', err);
+    }
+  });
+}
+
 
   ngAfterViewInit() {
     if (!this.menuButton || !this.closeButton || !this.deslizador) {

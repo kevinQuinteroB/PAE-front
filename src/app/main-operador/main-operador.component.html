@@ -3,7 +3,7 @@
         <img class="menu" src="assets/logo_Menu.png">
     </a>
     <div class="componentes">
-        <app-operador-busqueda *ngIf="isActive('operador-busqueda')"></app-operador-busqueda>
+        <app-operador-busqueda *ngIf="isActive('operador-busqueda')" [listaColegios]="listaColegios"></app-operador-busqueda>
         <app-info-colegio-operador *ngIf="isActive('info-colegio-operador')"></app-info-colegio-operador>
         <app-quejas-operador *ngIf="isActive('quejas-operador')"></app-quejas-operador>
     </div>  
@@ -11,7 +11,7 @@
 <div class="deslizador" id="deslizador" #deslizador>
     <img id="closeButton" class="close-button" src="assets/logo_X.png" #closeButton>
     <div class="texto-dislizador">
-        <h3 class="nombre-operador">Nombre <br> Operador</h3>
+        <h3 class="nombre-operador">{{operadorRegistrado.username}}</h3>
         <h5 (click)="setActiveComponent('operador-busqueda')" class="opciones-deslizador">Inicio</h5>
         <h5 (click)="setActiveComponent('info-colegio-operador')" class="opciones-deslizador">Colegio</h5>
         <h5 (click)="setActiveComponent('quejas-operador')" class="opciones-deslizador">Quejas</h5>

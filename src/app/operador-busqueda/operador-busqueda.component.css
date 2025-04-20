@@ -71,3 +71,24 @@
 .departamento{ flex: 3;}
 .ciudad{ flex: 2;}
 .estado{ flex: 1;}
+
+/* Cabecera de resultados y filas con datos */
+.grid-header, .grid-row {
+    display: grid;
+    grid-template-columns: 6fr 3fr 2fr 1fr; /* Proporciones iguales a tus clases anteriores */
+    gap: 10px;
+    padding: 10px 0;
+    align-items: center;
+    text-align: center;
+}
+
+  /* Estilo de cabecera */
+.grid-header {
+    font-weight: bold;
+    color: #62c669;
+    border-bottom: 2px solid #62c669;
+}
+  /* Estilo de cada fila de datos */
+.grid-row {
+    border-bottom: 1px solid #ccc;
+}

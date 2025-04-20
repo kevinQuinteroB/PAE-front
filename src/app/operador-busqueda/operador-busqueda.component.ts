@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Input } from '@angular/core';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-operador-busqueda',
@@ -7,6 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './operador-busqueda.component.css'
 })
 export class OperadorBusquedaComponent {
+  @Input() listaColegios: User[] = [];
 
   /* LOGICA PARA ABRIR Y CERRAR LOS FILTROS */
 

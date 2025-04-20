@@ -4,6 +4,12 @@ export class User {
     password!: string;
     message!: string;
     username!: string;
+    email!: string;
+    address!: string;
     token!: string;
     rol!: string;
+
+    calle?: string;
+    ciudad?: string;
+    departamento?: string;
 }
