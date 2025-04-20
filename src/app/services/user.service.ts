@@ -36,6 +36,10 @@ export class UserService {
     return this.HttpClient.get<User[]>(`${this.api}/user/list`)
   }
 
+  buscarNombreColegio(nombre:string): Observable<User[]>{
+    return this.HttpClient.get<User[]>(`${this.api}/user/listname/${nombre}`)
+  }
+
   getUser(): User {
     return JSON.parse(localStorage.getItem('UserGuardando') || '{}');
   }

@@ -1,9 +1,9 @@
 <div class="componente">
     <form class="form-inline my-2 my-lg-0 search-container">    
         <div class="input-group search-group">
-            <input id="campoBusqueda" name="campoBusqueda" class="form-control" type="search" placeholder="Buscar"> 
-            <button class="input-group-text search-btn" type="button">
-            <img src="assets/logo_Lupa.png" alt="Buscar" style="height: 20px;">
+            <input id="campoBusqueda" name="campoBusqueda" class="form-control" type="search" placeholder="Buscar" [(ngModel)]="busqueda"> 
+            <button class="input-group-text search-btn" type="button" (click)="buscar()">
+                <img src="assets/logo_Lupa.png" alt="Buscar" style="height: 20px;">
             </button>
         </div>
     </form>
@@ -16,7 +16,7 @@
             <div>Calle</div>
         </div>
         <div class="grid-row" *ngFor="let colegio of listaColegios">
-            <div>{{ colegio.name }}</div>
+            <div (click)="guardarColegio(colegio)" class="nombreColegio">{{ colegio.name }}</div>
             <div>{{ colegio.departamento }}</div>
             <div>{{ colegio.ciudad }}</div>
             <div>{{ colegio.calle }}</div>

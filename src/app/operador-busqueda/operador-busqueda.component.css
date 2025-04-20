@@ -92,3 +92,8 @@
 .grid-row {
     border-bottom: 1px solid #ccc;
 }
+
+.nombreColegio{
+    cursor: pointer;
+    text-decoration: underline; 
+}
