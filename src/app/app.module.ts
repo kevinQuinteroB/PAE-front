@@ -18,6 +18,8 @@ import { PedidoOperadorComponent } from './pedido-operador/pedido-operador.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { InventarioOperadorComponent } from './inventario-operador/inventario-operador.component';
+import { InventarioColegioComponent } from './inventario-colegio/inventario-colegio.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { FormsModule } from '@angular/forms';
     QuejasColegioComponent,
     EstudiantesComponent,
     EncuestaColegioComponent,
-    PedidoOperadorComponent
+    PedidoOperadorComponent,
+    InventarioOperadorComponent,
+    InventarioColegioComponent
   ],
   imports: [
     BrowserModule,

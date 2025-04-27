@@ -39,6 +39,7 @@ export class LoginComponent {
         },
         error: (error: any) => {
           console.error('Error al enviar', error);
+          alert('Credenciales Incorrectas')
         }
       });
     }

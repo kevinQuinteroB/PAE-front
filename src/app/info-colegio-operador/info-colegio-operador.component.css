@@ -12,6 +12,7 @@
     color: azure;
     font-weight: 700;
     margin-bottom: 25px;
+    text-transform: uppercase;
 }
 
 .info-col{
@@ -20,6 +21,16 @@
     height: 60vh;
     border-radius: 35px;
     margin-bottom: 15px;
+    padding: 5%;
+}
+
+.info-item {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.titulo-item{
+    color: #4eb15b;
 }
 
 .botones{

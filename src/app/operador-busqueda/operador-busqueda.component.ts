@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter  } from '@angular/core';
 import { Input } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
@@ -11,6 +11,7 @@ import { UserService } from '../services/user.service';
 })
 export class OperadorBusquedaComponent {
   @Input() listaColegios: User[] = [];
+  @Output() colegioSeleccionado = new EventEmitter<User>();
 
   constructor(
     private userService: UserService 
@@ -64,7 +65,6 @@ export class OperadorBusquedaComponent {
   }
 
   guardarColegio(colegio: User) {
-    localStorage.setItem('colegioSeleccionado', JSON.stringify(colegio));
-    console.log('Colegio guardado en localStorage:', colegio);
+    this.colegioSeleccionado.emit(colegio);
   }
 }

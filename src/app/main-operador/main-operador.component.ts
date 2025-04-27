@@ -25,9 +25,12 @@ export class MainOperadorComponent implements AfterViewInit{
 
 operadorRegistrado!: User;
 listaColegios!: User[];
+colegioSeleccionado!: User;
 
 ngOnInit() {
   this.operadorRegistrado = this.userService.getUser();
+  this.validarUsuario();
+  console.log(this.operadorRegistrado)
 
   this.userService.listarColegios().subscribe({
     next: (usuarios) => {
@@ -90,4 +93,23 @@ ngOnInit() {
     this.router.navigate(['/login']);
   }
 
+  validarUsuario() {
+    setTimeout(() => {
+      if (!this.operadorRegistrado.username) {
+        console.log(this.operadorRegistrado.username)
+        this.router.navigate(['/login']);
+      }
+    }, 100); // Puedes ajustar este tiempo si quieres
+  }
+
+  onColegioSeleccionado(colegio: User) {
+    this.colegioSeleccionado = colegio; // opcional
+    console.log('Colegio seleccionado:', colegio);
+  
+    this.setActiveComponent('info-colegio-operador'); // <--- Cambiar al componente de info
+  }
+
+  RegresarMain() {
+    this.setActiveComponent('operador-busqueda'); // <--- Cambiar al componente de info
+  }
 }

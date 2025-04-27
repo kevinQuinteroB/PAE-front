@@ -1,13 +1,24 @@
 <div class="modulo">
-    <h2 class="nombre-colegio">NOMBRE COLEGIO</h2>
+    <h2 class="nombre-colegio">{{colegioSeleccionado.name}}</h2>
 
     <div class="info-col">
-
+        <div class="info-item">
+            <strong class="titulo-item">Dirección:</strong> {{ colegioSeleccionado.calle }}
+        </div>
+        <div class="info-item">
+            <strong class="titulo-item">Ciudad:</strong> {{ colegioSeleccionado.ciudad }}
+        </div>
+        <div class="info-item">
+            <strong class="titulo-item">Departamento:</strong> {{ colegioSeleccionado.departamento }}
+        </div>
+        <div class="info-item">
+            <strong class="titulo-item">Email:</strong> {{ colegioSeleccionado.email }}
+        </div>
     </div>
 
     <div class="botones">
         <button class="btn btn-success" (click)="hacerPedido()" [disabled]="pedido">Realizar entrega</button>
-        <button class="btn btn-outline-light" [disabled]="pedido">Regresar</button>
+        <button class="btn btn-outline-light" [disabled]="pedido" (click)="regresar()">Regresar</button>
     </div>
 </div>
 <div class="hacar-pedido">
