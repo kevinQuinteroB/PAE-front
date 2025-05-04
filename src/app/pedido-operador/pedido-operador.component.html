@@ -3,15 +3,30 @@
 
     <div class="lista">
         <div class="alimentos">
-            <div *ngFor="let item of [].constructor(cantidadElementos); let i = index" >
-                Hola
+            <div class="fila-comida" *ngFor="let item of [].constructor(cantidadElementos); let i = index" >
+
+                <select class="input-select">
+                    <option disabled selected>Seleccione Alimento</option>
+                    <option *ngFor="let alimento of alimentos" [value]="alimento">{{ alimento }}</option>
+                </select>
+                
+                <select class="input-select">
+                    <option disabled selected>Fecha vencimiento</option>
+                    <option *ngFor="let fecha of fechas" [value]="fecha">{{ fecha }}</option>
+                </select>
+                
+                <div class="cantidad-container">
+                    <input type="number" class="cantidad-input" [(ngModel)]="cantidades[i]" min="1" />
+                </div>
+                
             </div>
             <div class="botones-entregas">
                 <button class="btn-lista" (click)="aggElemento()">+</button>
                 <button class="btn-lista" (click)="deleteElemento()" >-</button>
             </div>
         </div>   
-        <button class="btn-fecha-entrega">FECHA DE ENTREGA</button>
+        <button *ngIf="!mostrarSelectorFecha" class="btn-fecha-entrega" (click)="mostrarSelectorFecha = true">{{textoFecha}}</button>
+        <input *ngIf="mostrarSelectorFecha" type="date" [min]="hoy" onkeydown="return false" class="selector-fecha" (change)="seleccionarFecha($event)"/>
     </div>
 
     <div class="botones">

@@ -89,6 +89,13 @@
     height: 85%;
 }
 
+.fila-comida{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 3px 3px;
+}
+
 .btn-fecha-entrega{
     display: flex;
     position: relative;
@@ -105,4 +112,71 @@
 
 .btn-fecha-entrega:hover{
     background-color: #a3a3a3;
+}
+
+
+.item-pedido {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.input-select {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.cantidad-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cantidad-input {
+    width: 60px;
+    text-align: center;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.btn-cantidad {
+    background-color: #62c669;
+    border: none;
+    color: white;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btn-cantidad:hover {
+    background-color: #4aa64f;
+}
+
+
+.selector-fecha {
+    padding: 10px 20px;
+    margin: 0 15px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.btn-fecha-entrega {
+    background-color: #62c669;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.btn-fecha-entrega:hover {
+    background-color: #4aa64f;
 }
