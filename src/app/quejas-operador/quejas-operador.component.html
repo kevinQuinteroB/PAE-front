@@ -1,8 +1,17 @@
 <div class="componente">
     <h2 class="titulo-quejas">Quejas</h2>
-    <div class="columnas-titulo">
-        <div class="titulo-colegio">Colegio</div>
-        <div class="titulo-fecha">Fecha</div>
-        <div class="titulo-estado">Estado</div>
+    <div class="resultados">
+        <div class="grid-header">
+            <div class="nombreColegio"> Colegio </div>
+            <div> Comentario </div>
+            <div> Status </div>
+            <div> Fecha Expiracion </div>
+        </div>
+        <div class="grid-row" *ngFor=" let queja of quejas">
+            <div class="nombreColegio"> {{queja.school.name}} </div>
+            <div> {{queja.comment}} </div>
+            <div> {{queja.status}} </div>
+            <div> {{queja.creationDate}} </div>
+        </div>
     </div>
 </div>

@@ -16,24 +16,35 @@
     margin-bottom: 25px;
 }
 
-.columnas-titulo{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    color: #a3a3a3;
-    font-size: 17px;
-    font-weight: 500;
-}
 
-.titulo-colegio{
-    flex-grow: 2;
-}
-
-.titulo-fecha{
+.resultados {
+    margin-top: 5px;
     flex-grow: 1;
+    border-radius: 35px;
+    background-color: azure;
+    padding: 15px 20px;
 }
 
-.titulo-estado{
-    flex-grow: 0.3;
+.grid-header, .grid-row {
+    display: grid;
+    grid-template-columns: 2fr 7fr 2fr 2fr;
+    gap: 10px;
+    padding: 10px 0;
+    align-items: center;
+    text-align: center;
+}
+
+.grid-header {
+    font-weight: bold;
+    color: #62c669;
+    border-bottom: 2px solid #62c669;
+}
+
+.grid-row {
+    border-bottom: 1px solid #ccc;
+}
+
+
+.nombreColegio {
+    font-weight: 700;
 }
