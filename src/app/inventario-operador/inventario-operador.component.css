@@ -6,7 +6,7 @@
     width: 80vw;
     background-color: azure;
     border-radius: 35px;
-    padding: 5%;
+    padding: 25px;
 }
 
 .titulo-quejas {
@@ -20,12 +20,12 @@
     flex-grow: 1;
     border-radius: 35px;
     background-color: azure;
-    padding: 15px 20px;
+    padding: 10px 15px;
 }
 
 .grid-header, .grid-row {
     display: grid;
-    grid-template-columns: 2fr 7fr 2fr 2fr;
+    grid-template-columns: 2fr 5fr 2fr 2fr 2fr;
     gap: 10px;
     padding: 10px 0;
     align-items: center;
@@ -40,9 +40,4 @@
 
 .grid-row {
     border-bottom: 1px solid #ccc;
-}
-
-.nombreColegio {
-    cursor: pointer;
-    text-decoration: underline;
 }

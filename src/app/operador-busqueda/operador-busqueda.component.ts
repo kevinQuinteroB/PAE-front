@@ -27,41 +27,9 @@ export class OperadorBusquedaComponent {
   buscar(){
     console.log(this.busqueda)
     if (this.busqueda === '')
-      this.userService.listarColegios().subscribe({
-        next: (usuarios) => {
-          this.listaColegios = usuarios.map(colegio => {
-            const partes = colegio.address?.split(',') || [];
-            return {
-              ...colegio,
-              calle: partes[0]?.trim() || '',
-              ciudad: partes[1]?.trim() || '',
-              departamento: partes[2]?.trim() || ''
-            };
-          });
-          console.log(this.listaColegios);
-        },
-        error: (err) => {
-          console.error('Error al obtener colegios:', err);
-        }
-      });
+      this.userService.listarColegios().subscribe();
     else if (this.busqueda !== '')
-      this.userService.buscarNombreColegio(this.busqueda).subscribe({
-        next: (usuarios) => {
-          this.listaColegios = usuarios.map(colegio => {
-            const partes = colegio.address?.split(',') || [];
-            return {
-              ...colegio,
-              calle: partes[0]?.trim() || '',
-              ciudad: partes[1]?.trim() || '',
-              departamento: partes[2]?.trim() || ''
-            };
-          });
-          console.log(this.listaColegios);
-        },
-        error: (err) => {
-          console.error('Error al obtener colegios:', err);
-        }
-      });
+      this.userService.buscarNombreColegio(this.busqueda).subscribe();
   }
 
   guardarColegio(colegio: User) {

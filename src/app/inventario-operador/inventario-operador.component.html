@@ -2,16 +2,19 @@
     <h2 class="titulo-quejas">Inventario</h2>
     <div class="resultados">
         <div class="grid-header">
-            <div class="nombreColegio"> Nombre </div>
+            <div> Nombre </div>
             <div> Descripcion </div>
             <div> Fecha Expiracion </div>
             <div> Tipo </div>
+            <div> Cantidad </div>
         </div>
-        <div class="grid-row">
-            <div class="nombreColegio"> Nombre </div>
-            <div> Descripcion </div>
-            <div> Fecha Expiracion </div>
-            <div> Tipo </div>
+        <div class="grid-row" *ngFor="let comida of inventario">
+            <div> {{comida.food.name}} </div>
+            <div> {{comida.food.description}} </div>
+            <div> {{comida.food.expirationDate}} </div>
+            <div> {{comida.food.type}} </div>
+            <div> {{comida.quantity}} </div>
         </div>
     </div>
+    <button type="button" class="btn btn-success">Agregar</button>
 </div>

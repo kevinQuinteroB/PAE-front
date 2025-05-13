@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Queja } from '../models/queja';
 import { QuejaService } from '../services/queja.service';
 import { User } from '../models/user';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-quejas-operador',
@@ -15,17 +16,19 @@ export class QuejasOperadorComponent {
   token!: string;
 
 constructor(
-    private quejaService: QuejaService 
+    private quejaService: QuejaService,
+    private userService: UserService, 
   ){}
 
-  ngOnInit() {
-    const storedUser = localStorage.getItem("UserGuardando");
+  operadorRegistrado!: User;
   
-    if (storedUser) {
-      this.user = JSON.parse(storedUser);
+  ngOnInit() {
+    this.operadorRegistrado = this.userService.getUser();
+  
+    if (this.operadorRegistrado) {
       if(this.user){
         this.token = this.user.token;
-        this.quejaService.obtenerDatos(this.token, 5).subscribe({
+        this.quejaService.obtenerDatos(this.token, this.operadorRegistrado.id).subscribe({
           next: (queja) => {
             this.quejas = queja;
             console.log(this.quejas);

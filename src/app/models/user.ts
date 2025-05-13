@@ -8,8 +8,5 @@ export class User {
     address!: string;
     token!: string;
     rol!: string;
-
-    calle?: string;
-    ciudad?: string;
-    departamento?: string;
+    id!: number;
 }

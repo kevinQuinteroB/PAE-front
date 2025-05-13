@@ -11,15 +11,13 @@
         <!-- Cabecera -->
         <div class="grid-header">
             <div>Colegio</div>
-            <div>Departamento</div>
-            <div>Ciudad</div>
-            <div>Calle</div>
+            <div>Correo</div>
+            <div>Direccion</div>
         </div>
         <div class="grid-row" *ngFor="let colegio of listaColegios">
             <div (click)="guardarColegio(colegio)" class="nombreColegio">{{ colegio.name }}</div>
-            <div>{{ colegio.departamento }}</div>
-            <div>{{ colegio.ciudad }}</div>
-            <div>{{ colegio.calle }}</div>
+            <div>{{ colegio.email }}</div>
+            <div>{{ colegio.address }}</div>
         </div>
     </div>
 </div>
