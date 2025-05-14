@@ -41,3 +41,14 @@
 .grid-row {
     border-bottom: 1px solid #ccc;
 }
+
+.butones{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px
+}
+
+.butones button {
+    flex: 1; /* cada botón ocupa el mismo espacio disponible */
+}
