@@ -17,8 +17,15 @@
         </div>
     </div>
     <div class="butones">
-        <button type="button" class="btn btn-success">Agregar Producto</button>
+        <button type="button" class="btn btn-success" (click)="hacerPedido()" >Agregar Producto</button>
         <button type="button" class="btn btn-success">Agregar Inventario</button>
     </div>
     
+    
+    <app-crear-producto-operador
+    *ngIf="pedido"
+    (cerrar)="pedido = false"
+    (alimentoCreado)="recargarInventario()"
+></app-crear-producto-operador>
 </div>
+

@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { InventarioOperadorComponent } from './inventario-operador/inventario-operador.component';
 import { InventarioColegioComponent } from './inventario-colegio/inventario-colegio.component';
+import { CrearProductoOperadorComponent } from './crear-producto-operador/crear-producto-operador.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { InventarioColegioComponent } from './inventario-colegio/inventario-cole
     EncuestaColegioComponent,
     PedidoOperadorComponent,
     InventarioOperadorComponent,
-    InventarioColegioComponent
+    InventarioColegioComponent,
+    CrearProductoOperadorComponent
   ],
   imports: [
     BrowserModule,
