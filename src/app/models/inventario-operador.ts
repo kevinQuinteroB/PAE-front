@@ -21,7 +21,7 @@ export class InventarioOperador {
         name: string;
         description: string;
         type: string;
-        expirationDate: string;
     };
+    expirationDate!: string;  // Fecha de expiración en formato "YYYY-MM-DD"
     quantity!: number;
 }

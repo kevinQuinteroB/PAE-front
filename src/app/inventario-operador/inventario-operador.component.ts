@@ -43,6 +43,8 @@ export class InventarioOperadorComponent {
       console.error('Error al obtener inventario:', error);
     }
   )
+  this.recargarInventario();
+  this.recargarInventarioOperador();
   }
 
 
@@ -55,16 +57,36 @@ export class InventarioOperadorComponent {
   this.crearinventario = true;
   }
 
+  actualizarInventario() {
+  console.log('Recargando inventario...');
+  this.recargarInventario();
+  this.recargarInventarioOperador();
+}
+
+
   recargarInventario() {
-    this.inventarioService.obtenerAlimentos(this.operadorRegistrado.token,this.operadorRegistrado.id).subscribe(
+  this.inventarioService.obtenerAlimentos(this.operadorRegistrado.token, this.operadorRegistrado.id).subscribe(
     (data: Food[]) => {
       this.comida = data;
+      console.log('Alimentos actualizados:', this.comida);  // Verifica si los alimentos están siendo actualizados
+    },
+    (error) => {
+      console.error('Error al obtener alimentos:', error);
+    }
+  );
+}
+
+recargarInventarioOperador(){
+  this.userService.listarInventarioOperador(this.operadorRegistrado.token ,this.operadorRegistrado.id).subscribe(
+    (data: InventarioOperador[]) => {
+      this.inventario = data;
     },
     (error) => {
       console.error('Error al obtener inventario:', error);
     }
   );
-  }
+}
+
 
 
 }

@@ -31,4 +31,13 @@ export class InventarioService {
 
     return this.HttpClient.post(`${this.api}/food/create`, food , { headers });
   }
+
+  crearInventario(inventario: Inventario, token: string){
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+  console.log(token)
+  return this.HttpClient.post(`${this.api}/inventaryoperator/create`, inventario, { headers });
+}
+
 }

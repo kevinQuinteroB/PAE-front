@@ -1,4 +1,5 @@
 export class Food {
+idFood?: number;
 user!: {
     "idUser": number
 }

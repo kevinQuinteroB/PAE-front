@@ -61,3 +61,15 @@
     transform: translate(-50%, -50%);
     z-index: 1000;
 }
+
+.resultados {
+  max-height: 400px; /* Define la altura máxima para el contenedor */
+  overflow-y: auto;  /* Habilita el scroll vertical cuando el contenido sobrepase la altura */
+  border: 1px solid #ccc; /* Opcional: para que se vea mejor el contenedor */
+  padding: 10px;  /* Opcional: agrega algo de espacio alrededor del contenido */
+}
+
+.grid-header {
+  font-weight: bold; /* Opcional: para resaltar los encabezados */
+  background-color: #f1f1f1; /* Opcional: para darle un fondo al encabezado */
+}
