@@ -1,0 +1,134 @@
+
+.modal {
+    height: 360px;
+    width: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid rgb(173, 173, 173);
+    z-index: 1000; /* Asegúrate de que el modal esté encima del fondo */
+    width: 500px;
+    display: block; /* Asegúrate de que el modal esté visible cuando 'pedido' sea true */
+}
+
+/* Título del modal */
+.titulo {
+    color: rgb(58, 145, 50);
+    font-weight: bold;
+}
+
+/* Contenedor principal del formulario */
+.lista {
+    display: flex;
+    flex-direction: column;
+    background-color: azure;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Contenedor de los campos */
+.alimentos {
+    overflow-y: auto;
+    height: auto;
+}
+
+/* Fila de campos */
+.fila-comida {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+/* Campos de texto */
+.input-select {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Input para cantidad */
+.cantidad-container {
+    display: flex;
+    align-items: center;
+}
+
+.cantidad-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Botones finales */
+.botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn-entrega {
+    padding: 10px 20px;
+    background-color: #fcfcfc;
+    color: #9a9a9a;
+    border: 0;
+    border-radius: 20px;
+}
+
+.btn-entrega:hover {
+    background-color: #9c9c9c;
+    color: #ffffff;
+}
+
+.btn-cancelar {
+    padding: 10px 20px;
+    background-color: #ff0b0b;
+    color: #ffffff;
+    border: 0;
+    border-radius: 20px;
+}
+
+.btn-cancelar:hover {
+    background-color: #c20c0c;
+    color: #ffffff;
+}
+
+.campo-cantidad {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.campo-cantidad label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.campo-cantidad input.input-number {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.campo-cantidad input.input-number:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.campo-cantidad input.input-number::placeholder {
+  color: #888;
+}
+

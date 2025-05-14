@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { InventarioOperadorComponent } from './inventario-operador/inventario-operador.component';
 import { InventarioColegioComponent } from './inventario-colegio/inventario-colegio.component';
 import { CrearProductoOperadorComponent } from './crear-producto-operador/crear-producto-operador.component';
+import { CrearInventarioOperadorComponent } from './crear-inventario-operador/crear-inventario-operador.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CrearProductoOperadorComponent } from './crear-producto-operador/crear-
     PedidoOperadorComponent,
     InventarioOperadorComponent,
     InventarioColegioComponent,
-    CrearProductoOperadorComponent
+    CrearProductoOperadorComponent,
+    CrearInventarioOperadorComponent
   ],
   imports: [
     BrowserModule,

@@ -23,7 +23,7 @@ export class InventarioOperadorComponent {
   comida!: Food[];
 
   pedido: boolean = false;
-
+  crearinventario: boolean = false;
 
   ngOnInit(){
   this.operadorRegistrado = this.userService.getUser();
@@ -51,8 +51,12 @@ export class InventarioOperadorComponent {
   this.pedido = true;
   }
 
+  crearInventario(){
+  this.crearinventario = true;
+  }
+
   recargarInventario() {
-   this.inventarioService.obtenerAlimentos(this.operadorRegistrado.token,this.operadorRegistrado.id).subscribe(
+    this.inventarioService.obtenerAlimentos(this.operadorRegistrado.token,this.operadorRegistrado.id).subscribe(
     (data: Food[]) => {
       this.comida = data;
     },
