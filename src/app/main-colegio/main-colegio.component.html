@@ -4,6 +4,7 @@
     </a>
     <div class="componentes">
       <app-colegio-busqueda *ngIf="isActive('colegio-busqueda')"></app-colegio-busqueda>
+      <app-quejas-colegio *ngIf="isActive('quejas-colegio')"></app-quejas-colegio>
 
     </div>  
 </div>
@@ -14,7 +15,7 @@
         <h5 (click)="closeActiveComponent()" class="opciones-deslizador">Inicio</h5>
         <h5 (click)="setActiveComponent('quejas-operador')" class="opciones-deslizador">Encuestar</h5>
         <h5 (click)="setActiveComponent('quejas-operador')" class="opciones-deslizador">Estudiantes</h5>
-        <h5 (click)="setActiveComponent('quejas-operador')" class="opciones-deslizador">Realizar Queja</h5>
+        <h5 (click)="setActiveComponent('quejas-colegio')" class="opciones-deslizador">Realizar Queja</h5>
     </div>
     <button class="btn-salir" (click)="salir()">SALIR</button>
 </div>
