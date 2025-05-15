@@ -57,6 +57,21 @@ export class QuejasColegioComponent implements AfterViewInit {
     salir() {
       this.router.navigate(['/login']);
     }
+    
+    mostrarFormularioQueja = false;
+
+mostrarFormulario() {
+  this.mostrarFormularioQueja = true;
+}
+
+cerrarFormulario() {
+  this.mostrarFormularioQueja = false;
+}
+
+refrescarLista() {
+  // lógica opcional si quieres recargar la lista de quejas después de crear una
+}
+
 
 }
 

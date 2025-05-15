@@ -20,8 +20,14 @@
   </div>
 
 
-  <!-- Formulario opcional (puede mostrarse al hacer clic en el botón) -->
-    <div class="butones">
-        <button type="button" class="btn btn-success" (click)="setActiveComponent('quejas-colegio')">Crear Queja</button>
-    </div>
+<!-- Botón para abrir el formulario de queja -->
+<div class="butones">
+  <button type="button" class="btn btn-success" (click)="mostrarFormulario()">Crear Queja</button>
+</div>
+
+<app-crear-queja
+  *ngIf="mostrarFormularioQueja"
+  (cerrar)="cerrarFormulario()"
+  (quejaCreada)="refrescarLista()">
+</app-crear-queja>
 </div>

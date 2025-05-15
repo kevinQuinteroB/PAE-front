@@ -1,0 +1,75 @@
+.componente {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    height: 80vh;
+    width: 80vw;
+    background-color: azure;
+    border-radius: 35px;
+    padding: 25px;
+}
+
+.titulo-quejas {
+    color: #62c669;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.resultados {
+    margin-top: 5px;
+    flex-grow: 1;
+    border-radius: 35px;
+    background-color: azure;
+    padding: 10px 15px;
+}
+
+.grid-header, .grid-row {
+    display: grid;
+    grid-template-columns: 2fr 5fr 2fr 2fr 2fr;
+    gap: 10px;
+    padding: 10px 0;
+    align-items: center;
+    text-align: center;
+}
+
+.grid-header {
+    font-weight: bold;
+    color: #62c669;
+    border-bottom: 2px solid #62c669;
+}
+
+.grid-row {
+    border-bottom: 1px solid #ccc;
+}
+
+.butones{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px
+}
+
+.butones button {
+    flex: 1; /* cada botón ocupa el mismo espacio disponible */
+}
+
+
+.hacar-pedido{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.resultados {
+  max-height: 400px; /* Define la altura máxima para el contenedor */
+  overflow-y: auto;  /* Habilita el scroll vertical cuando el contenido sobrepase la altura */
+  border: 1px solid #ccc; /* Opcional: para que se vea mejor el contenedor */
+  padding: 10px;  /* Opcional: agrega algo de espacio alrededor del contenido */
+}
+
+.grid-header {
+  font-weight: bold; /* Opcional: para resaltar los encabezados */
+  background-color: #f1f1f1; /* Opcional: para darle un fondo al encabezado */
+}

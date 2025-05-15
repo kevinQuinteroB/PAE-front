@@ -23,4 +23,13 @@ export class QuejaService {
 
     return this.HttpClient.get<Queja[]>(`${this.api}/complaint/list/${id}`, { headers });
   }
+
+    crearQueja(queja: any, token: string): Observable<Queja> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+
+    return this.HttpClient.post<Queja>(`${this.api}/complaint/create`, queja, { headers });
+  }
 }

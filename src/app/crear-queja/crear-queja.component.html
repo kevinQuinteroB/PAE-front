@@ -1,0 +1,21 @@
+<div>
+  <div class="modal">
+    <h3 class="titulo">Nueva Queja</h3>
+
+    <div class="lista">
+      <div class="queja">
+        <div class="fila-queja">
+          <input type="text" placeholder="Comentario" class="input-select" [(ngModel)]="nuevaQueja.comment" />
+          <input type="text" placeholder="Estado" class="input-select" [(ngModel)]="nuevaQueja.status" />
+          <input type="number" placeholder="ID de Orden" class="input-select" [(ngModel)]="nuevaQueja.idOrden" />
+        </div>
+      </div>
+    </div>
+
+    <div class="botones">
+      <button class="btn-entrega" (click)="agregarQueja()">Guardar</button>
+      <button class="btn-cancelar" (click)="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
