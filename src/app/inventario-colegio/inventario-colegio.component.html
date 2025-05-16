@@ -8,7 +8,30 @@
             <div> Tipo </div>
             <div> Cantidad </div>
         </div>
-        <div class="grid-row">
- 
+        <div class="grid-row" *ngFor="let comida of inventario">
+            <div> {{comida.food.name}} </div>
+            <div> {{comida.food.description}} </div>
+            <div> {{comida.expirationDate}} </div>
+            <div> {{comida.food.type}} </div>
+            <div> {{comida.quantity}} </div>
         </div>
     </div>
+    <div class="butones">
+        <button type="button" class="btn btn-success" (click)="hacerPedido()" >Agregar Producto</button>
+        <button type="button" class="btn btn-success" (click)="crearInventario()">Agregar Inventario</button>
+    </div>
+    
+    
+    <app-crear-producto-operador
+    *ngIf="pedido"
+    (cerrar)="pedido = false"
+    (alimentoCreado)="recargarInventario()"
+    ></app-crear-producto-operador>
+
+    <app-crear-inventario-operador
+    (cerrar)="crearinventario = false"
+    *ngIf="crearinventario"
+    [alimentosDisponibles]="comida"
+    (inventarioCreado)="actualizarInventario()">
+    </app-crear-inventario-operador>
+</div>
