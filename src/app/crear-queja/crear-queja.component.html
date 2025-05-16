@@ -5,14 +5,26 @@
     <div class="lista">
       <div class="queja">
         <div class="fila-queja">
-          <input type="text" placeholder="Comentario" class="input-select" [(ngModel)]="nuevaQueja.comment" />
-          <input type="text" placeholder="Estado" class="input-select" [(ngModel)]="nuevaQueja.status" />
-          <input type="number" placeholder="ID de Orden" class="input-select" [(ngModel)]="nuevaQueja.idOrden" />
+          <input type="text" placeholder="Comentario" class="input-select" [(ngModel)]="nuevaComplaint.comment" />
+          <input type="text" placeholder="Estado" class="input-select" [(ngModel)]="nuevaComplaint.status" />
+           <label for="orden">Orden</label>
+                      <select id="orden" [(ngModel)]="nuevaComplaint.order.idOrder">
+                        <option value="0" disabled selected>Seleccione una orden</option>
+                        <option *ngFor="let orden of ordenes" [value]="orden.idOrder">
+                          {{ orden.idOrder }} <!-- o el campo que represente esa orden -->
+                        </option>
+                      </select>
+                          <div class="campo-fecha">
+                        <label for="fecha">Fecha de vencimiento</label>
+                        <input type="date" id="fecha" [(ngModel)]="nuevaComplaint.creationDate" class="input-date" [min]="hoy" placeholder="Seleccione una fecha">
+                </div>
+          
         </div>
       </div>
     </div>
 
     <div class="botones">
+      
       <button class="btn-entrega" (click)="agregarQueja()">Guardar</button>
       <button class="btn-cancelar" (click)="cerrarModal()">Cerrar</button>
     </div>

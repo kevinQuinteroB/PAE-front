@@ -1,8 +1,13 @@
-export class Queja {
-    idQueja!: number;
+export class Complaint {
+    idQueja?: number;
     comment!: string;
     status!: string;
     creationDate!: string;
-    school!: { name: string };
+    school!: {
+    "idUser": number
+}
+    order!: {
+    "idOrder": number
+}
 
 }

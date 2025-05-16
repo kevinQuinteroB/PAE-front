@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Queja } from '../models/queja';
+import { Complaint} from '../models/queja';
 import { QuejaService } from '../services/queja.service';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
@@ -12,7 +12,7 @@ import { UserService } from '../services/user.service';
 })
 export class QuejasOperadorComponent {
   user: User | null = null;
-  quejas: Queja[] = [];
+  quejas: Complaint[] = [];
   token!: string;
 
 constructor(

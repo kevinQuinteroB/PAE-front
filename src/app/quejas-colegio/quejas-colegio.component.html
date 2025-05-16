@@ -6,28 +6,31 @@
 
   <div class="resultados">
     <div class="grid-header">
-      <div>ID Queja</div>
       <div>Usuario</div>
       <div>Orden</div>
       <div>Comentario</div>
       <div>Estatus</div>
+
     </div>
 
     <!-- Aquí se renderizarían las quejas existentes -->
-    <div class="grid-row" >
-
+    <div class="grid-row" *ngFor="let queja of quejas">
+      <div>{{ queja.school.idUser }}</div>
+      <div>{{ queja.order.idOrder }}</div>
+      <div>{{ queja.comment }}</div>
+      <div>{{ queja.status }}</div>
     </div>
   </div>
 
 
-<!-- Botón para abrir el formulario de queja -->
+<!-- Botón para abrir el formulario de Complaint-->
 <div class="butones">
   <button type="button" class="btn btn-success" (click)="mostrarFormulario()">Crear Queja</button>
 </div>
 
 <app-crear-queja
-  *ngIf="mostrarFormularioQueja"
+  *ngIf="mostrarFormularioComplaint"
   (cerrar)="cerrarFormulario()"
-  (quejaCreada)="refrescarLista()">
+  (quejaCreada)="ngOnInit()">
 </app-crear-queja>
 </div>

@@ -1,5 +1,10 @@
 import { Router } from '@angular/router';
 import { Component, ElementRef, ViewChild, AfterViewInit, Renderer2 } from '@angular/core';
+import { QuejaService } from '../services/queja.service';
+import { Complaint} from '../models/queja';
+import { User } from '../models/user';
+import { UserService } from '../services/user.service';
+import { Order } from '../models/order';
 
 @Component({
   selector: 'app-quejas-colegio',
@@ -13,8 +18,22 @@ export class QuejasColegioComponent implements AfterViewInit {
   @ViewChild('menuButton') menuButton!: ElementRef;
   @ViewChild('closeButton') closeButton!: ElementRef;
 
-  constructor(private renderer: Renderer2, private router: Router) {}
+  constructor(private renderer: Renderer2, private router: Router,private quejaService: QuejaService, private UserService:UserService) {}
+  quejas: Complaint[] = [];
+  colegioRegistrado!: User;
+    ngOnInit() {
+  this.colegioRegistrado = this.UserService.getUser();
   
+  this.quejaService.obtenerDatos(this.colegioRegistrado.token,this.colegioRegistrado.id).subscribe(
+        (data: Complaint[]) => {
+          this.quejas = data;
+        },
+        (error) => {
+          console.error('Error al obtener inventario:', error);
+        }
+  );
+    
+  }
   ngAfterViewInit(){
     if (!this.menuButton || !this.closeButton || !this.deslizador) {
       console.error('No se encontraron los elementos del menú.');
@@ -58,18 +77,21 @@ export class QuejasColegioComponent implements AfterViewInit {
       this.router.navigate(['/login']);
     }
     
-    mostrarFormularioQueja = false;
+
+
+    mostrarFormularioComplaint= false;
 
 mostrarFormulario() {
-  this.mostrarFormularioQueja = true;
+  this.mostrarFormularioComplaint= true;
 }
 
 cerrarFormulario() {
-  this.mostrarFormularioQueja = false;
+  this.mostrarFormularioComplaint= false;
 }
 
+
 refrescarLista() {
-  // lógica opcional si quieres recargar la lista de quejas después de crear una
+
 }
 
 
