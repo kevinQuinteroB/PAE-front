@@ -1,0 +1,20 @@
+<div>
+    <div class="modal">
+        <h3 class="titulo">Nuevo Alimento</h3>
+
+        <div class="lista">
+        <div class="alimentos">
+            <div class="fila-comida">
+                <input type="text" placeholder="Nombre del producto" class="input-select" [(ngModel)]="nuevoAlimento.name" />
+                <input type="text" placeholder="Descripción" class="input-select" [(ngModel)]="nuevoAlimento.description" />
+                <input type="text" placeholder="Tipo" class="input-select" [(ngModel)]="nuevoAlimento.type" />
+            </div>
+        </div>
+        </div>
+
+        <div class="botones">
+        <button class="btn-entrega" (click)="agregarAlimento()">Guardar</button>
+        <button class="btn-cancelar" (click)="cerrarModal()">Cerrar</button>
+        </div>
+    </div>
+</div>

@@ -22,16 +22,16 @@
     </div>
     
     
-    <app-crear-producto-operador
+    <app-crear-producto-colegio
     *ngIf="pedido"
     (cerrar)="pedido = false"
     (alimentoCreado)="recargarInventario()"
-    ></app-crear-producto-operador>
+    ></app-crear-producto-colegio>
 
-    <app-crear-inventario-operador
+    <app-crear-inventario-colegio
     (cerrar)="crearinventario = false"
     *ngIf="crearinventario"
     [alimentosDisponibles]="comida"
     (inventarioCreado)="actualizarInventario()">
-    </app-crear-inventario-operador>
+    </app-crear-inventario-colegio>
 </div>

@@ -23,6 +23,9 @@
     border-radius: 35px;
     background-color: azure;
     padding: 15px 20px;
+    max-height: 300px;
+    margin-bottom: 10px; 
+    overflow-y: auto;
 }
 
 .grid-header, .grid-row {

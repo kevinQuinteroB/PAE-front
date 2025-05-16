@@ -1,0 +1,44 @@
+<div>
+    <div class="modal">
+        <h3 class="titulo">Agregar Inventario</h3>
+
+        <div class="lista">
+        <div class="alimentos">
+            <div class="fila-comida">
+                <!-- Primer selector para los nombres de los productos -->
+                <select [(ngModel)]="productoSeleccionado" (change)="filtrarDescripciones()" class="input-select">
+                    <option value="" disabled selected>Seleccione un producto</option>
+                    <option *ngFor="let producto of productosUnicos" [value]="producto">
+                        {{ producto }}
+                    </option>
+                </select>
+
+                <!-- Segundo selector para las descripciones del producto seleccionado -->
+                <!-- Segundo selector para las descripciones del producto seleccionado -->
+                <select [(ngModel)]="descripcionSeleccionada" class="input-select" [disabled]="!productoSeleccionado">
+                    <option value="" disabled selected>Seleccione una descripción</option>
+                    <option *ngFor="let item of descripcionesDisponibles" [ngValue]="item">
+                        {{ item.description }} <!-- Mostrar la descripción del producto -->
+                    </option>
+                </select>
+
+
+                <div class="campo-cantidad">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="number" id="cantidad" [(ngModel)]="cantidad" class="input-number" min="1" placeholder="Ingrese cantidad">
+                </div>
+
+                <div class="campo-fecha">
+                        <label for="fecha">Fecha de vencimiento</label>
+                        <input type="date" id="fecha" [(ngModel)]="fecha" class="input-date" [min]="hoy" placeholder="Seleccione una fecha">
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="botones">
+        <button class="btn-entrega" (click)="crearObjetoInventario()">Guardar</button>
+        <button class="btn-cancelar" (click)="cerrarModal()">Cerrar</button>
+        </div>
+    </div>
+</div>

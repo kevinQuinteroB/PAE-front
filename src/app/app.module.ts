@@ -23,6 +23,9 @@ import { InventarioColegioComponent } from './inventario-colegio/inventario-cole
 import { CrearProductoOperadorComponent } from './crear-producto-operador/crear-producto-operador.component';
 import { CrearInventarioOperadorComponent } from './crear-inventario-operador/crear-inventario-operador.component';
 import { CrearQuejaComponent } from './crear-queja/crear-queja.component';
+import { MenuComponent } from './menu/menu.component';
+import { CrearInventarioColegioComponent } from './crear-inventario-colegio/crear-inventario-colegio.component';
+import { CrearProductoColegioComponent } from './crear-producto-colegio/crear-producto-colegio.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { CrearQuejaComponent } from './crear-queja/crear-queja.component';
     InventarioColegioComponent,
     CrearProductoOperadorComponent,
     CrearInventarioOperadorComponent,
-    CrearQuejaComponent
+    CrearQuejaComponent,
+    MenuComponent,
+    CrearInventarioColegioComponent,
+    CrearProductoColegioComponent
   ],
   imports: [
     BrowserModule,
