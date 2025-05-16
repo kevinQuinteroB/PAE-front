@@ -24,17 +24,16 @@ constructor(
   
   ngOnInit() {
     this.operadorRegistrado = this.userService.getUser();
-  
+
     if (this.operadorRegistrado) {
-      if(this.user){
-        this.token = this.user.token;
-        this.quejaService.obtenerDatos(this.token, this.operadorRegistrado.id).subscribe({
+      console.log(this.user)
+        this.quejaService.obtenerDatos(this.operadorRegistrado.token, 2 ).subscribe({
           next: (queja) => {
             this.quejas = queja;
             console.log(this.quejas);
           }
         })
-      }
+      
     }
   }
   

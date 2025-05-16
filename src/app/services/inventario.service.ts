@@ -5,6 +5,7 @@ import { Inventario } from '../models/inventario';
 import { Food } from '../models/food';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { Pedido } from '../models/pedido';
 
 
 @Injectable({
@@ -38,6 +39,13 @@ export class InventarioService {
   });
   console.log(token)
   return this.HttpClient.post(`${this.api}/inventaryoperator/create`, inventario, { headers });
+}
+
+crearOrden(pedido: Pedido, token: string){
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+  return this.HttpClient.post(`${this.api}/orderfood/create`, pedido, { headers });
 }
 
 }

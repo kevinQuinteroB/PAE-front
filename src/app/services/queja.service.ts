@@ -24,8 +24,8 @@ export class QuejaService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-
-    return this.HttpClient.get<Complaint[]>(`${this.api}/complaint/list/${id}`, { headers });
+    console.log("Buscando Queja")
+    return this.HttpClient.get<Queja[]>(`${this.api}/complaint/list/${id}`, { headers });
   }
 
   crearQueja(queja: any, token: string): Observable<Complaint> {

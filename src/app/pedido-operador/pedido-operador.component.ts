@@ -1,4 +1,9 @@
 import { Component, Input, Output, EventEmitter  } from '@angular/core';
+import { InventarioOperador } from '../models/inventario-operador';
+import { UserService } from '../services/user.service';
+import { User } from '../models/user';
+import { InventarioService } from '../services/inventario.service';
+import { Pedido } from '../models/pedido';
 
 @Component({
   selector: 'app-pedido-operador',
@@ -23,6 +28,45 @@ export class PedidoOperadorComponent {
 
   mostrarSelectorFecha = false;
   fechaSeleccionada: string | null = null;
+  inventario!: InventarioOperador[];
+  operadorRegistrado!: User;
+  pedidoData!: Pedido;
+
+  seleccion = {
+  idFood: null as number | null,
+  quantity: 1,
+  comment: ''
+};
+
+
+
+  constructor(
+    private userService: UserService,
+    private inventarioService: InventarioService
+  ){}
+
+  ngOnInit() {
+  this.operadorRegistrado = this.userService.getUser();
+  console.log('Usuario:', this.operadorRegistrado);
+  console.log('Token:', this.operadorRegistrado.token);
+  console.log('ID:', this.operadorRegistrado.id);
+
+  if (!this.operadorRegistrado || !this.operadorRegistrado.token || !this.operadorRegistrado.id) {
+    console.error('Error: usuario no válido');
+    return;
+  }
+
+  this.userService.listarInventarioOperador(this.operadorRegistrado.token, this.operadorRegistrado.id).subscribe(
+    (data: InventarioOperador[]) => {
+      this.inventario = data;
+      console.log('Inventario:', this.inventario);
+    },
+    (error) => {
+      console.error('Error al obtener inventario:', error);
+    }
+  );
+}
+
 
   seleccionarFecha(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -45,4 +89,44 @@ export class PedidoOperadorComponent {
       this.cantidadElementos = this.cantidadElementos - 1;
     }
   }
+
+  hacerPedido() {
+    if (!this.esFormularioValido()) return;
+
+    this.pedidoData = {
+      logistics: { idUser: this.operadorRegistrado.id },
+      school: { idUser: 2 },  // Cambia según tu lógica
+      food: { idFood: this.seleccion.idFood! },  // El "!" indica que no es null
+      quantity: this.seleccion.quantity,
+      status: 'enviada',
+      deliveryDate: this.fechaSeleccionada!,
+      comment: this.seleccion.comment
+    };
+
+    console.log('Pedido creado:', this.pedidoData);
+    
+    this.inventarioService.crearOrden(this.pedidoData, this.operadorRegistrado.token).subscribe({
+  next: (response) => {
+    console.log('Pedido creado en backend:', response);
+    // aquí puedes notificar éxito al usuario o limpiar el formulario
+  },
+  error: (err) => {
+    console.error('Error creando pedido:', err);
+  }
+});
+
+  }
+
+
+esFormularioValido(): boolean {
+  return (
+    this.fechaSeleccionada !== null &&
+    this.seleccion.idFood !== null &&
+    this.seleccion.quantity > 0 &&
+    this.seleccion.comment.trim() !== ''
+  );
+}
+
+
+
 }
