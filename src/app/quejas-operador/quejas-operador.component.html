@@ -2,16 +2,16 @@
     <h2 class="titulo-quejas">Quejas</h2>
     <div class="resultados">
         <div class="grid-header">
-            <div class="nombreColegio"> Colegio </div>
+            <div class="Id Colegio"> Colegio </div>
             <div> Comentario </div>
             <div> Status </div>
             <div> Fecha Expiracion </div>
         </div>
-        <div class="grid-row" *ngFor=" let Complaintof quejas">
-            <div class="nombreColegio"> {{Complaintof.school.name}} </div>
-            <div> {{Complaintof.comment}} </div>
-            <div> {{Complaintof.status}} </div>
-            <div> {{Complaintof.creationDate}} </div>
+        <div class="grid-row" *ngFor=" let Complaint of quejas">
+            <div class="nombreColegio"> {{Complaint.school.idUser}} </div>
+            <div> {{Complaint.comment}} </div>
+            <div> {{Complaint.comment}} </div>
+            <div> {{Complaint.creationDate}} </div>
         </div>
     </div>
 </div>

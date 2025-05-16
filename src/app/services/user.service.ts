@@ -5,6 +5,7 @@ import { User } from '../models/user';
 import { InventarioOperador} from "../models/inventario-operador";
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { InventarioColegio } from '../models/inventario-colegio';
 
 
 @Injectable({
@@ -18,6 +19,14 @@ export class UserService {
     private router: Router,
   ) { }
 
+  listarInventarioColegio(token: string, id: number): Observable<any>{
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.HttpClient.get<InventarioColegio[]>(`${this.api}/inventoryschool/list/${id}`, { headers })
+  }
+  
   listarInventarioOperador(token: string, id: number): Observable<any>{
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
