@@ -20,7 +20,7 @@ export class QuejaService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-
+    console.log("Buscando Queja")
     return this.HttpClient.get<Queja[]>(`${this.api}/complaint/list/${id}`, { headers });
   }
 
