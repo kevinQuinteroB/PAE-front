@@ -3,32 +3,53 @@
 
     <div class="lista">
         <div class="alimentos">
-            <div class="fila-comida" *ngFor="let item of [].constructor(cantidadElementos); let i = index" >
+        <div
+            class="fila-comida"
+            *ngFor="let item of [].constructor(cantidadElementos); let i = index"
+            style="display: flex; gap: 0.5rem; align-items: center;"
+        >
+            <select class="input-select" [(ngModel)]="seleccion.idFood" name="alimento">
+  <option disabled [value]="null">Seleccione Alimento</option>
+  <option *ngFor="let item of inventario" [value]="item.food.idFood">
+    {{ item.food.name }} ({{ item.food.type }}) - Vence: {{ item.expirationDate }}
+  </option>
+</select>
 
-                <select class="input-select">
-                    <option disabled selected>Seleccione Alimento</option>
-                    <option *ngFor="let alimento of alimentos" [value]="alimento">{{ alimento }}</option>
-                </select>
-                
-                <select class="input-select">
-                    <option disabled selected>Fecha vencimiento</option>
-                    <option *ngFor="let fecha of fechas" [value]="fecha">{{ fecha }}</option>
-                </select>
-                
+            <input type="number" [(ngModel)]="seleccion.quantity" min="1" placeholder="Cantidad" class="input-cantidad" />
 
-                
-            </div>
-            <div class="botones-entregas">
-                <button class="btn-lista" (click)="aggElemento()">+</button>
-                <button class="btn-lista" (click)="deleteElemento()" >-</button>
-            </div>
-        </div>   
-        <button *ngIf="!mostrarSelectorFecha" class="btn-fecha-entrega" (click)="mostrarSelectorFecha = true">{{textoFecha}}</button>
-        <input *ngIf="mostrarSelectorFecha" type="date" [min]="hoy" onkeydown="return false" class="selector-fecha" (change)="seleccionarFecha($event)"/>
+
+            <input type="text" [(ngModel)]="seleccion.comment" placeholder="Observaciones" class="input-observacion" />
+
+        </div>
+        </div>
+
+        <button
+        *ngIf="!mostrarSelectorFecha"
+        class="btn-fecha-entrega"
+        (click)="mostrarSelectorFecha = true"
+        >
+        {{ textoFecha }}
+        </button>
+
+        <input
+        *ngIf="mostrarSelectorFecha"
+        type="date"
+        [min]="hoy"
+        onkeydown="return false"
+        class="selector-fecha"
+        (change)="seleccionarFecha($event)"
+        />
     </div>
 
     <div class="botones">
-        <button class="btn-entrega">Hacer Entrega</button>
+        <button
+        class="btn-entrega"
+        (click)="hacerPedido()"
+        [disabled]="!esFormularioValido()"
+        >
+        Hacer Entrega
+        </button>
+
         <button (click)="cerrarPedido()" class="btn-cancelar">Cancelar</button>
     </div>
 </div>
