@@ -1,16 +1,30 @@
 <div class="componente">
-    <h1 style=color:white>ESTUDIANTES</h1>
-    <div class="resultados">
-        <div class="encabezado">
-            <h6 class="colegio">Comida</h6>
-            <h6 class="Cantidad">Cantidad</h6>
-            <h6 class="Vencimiento">Vencimiento</h6>
-        </div>
+  <h1 style="color:white">ESTUDIANTES</h1>
+
+  <div class="resultados">
+    <div class="encabezado grid-row">
+      <div><strong>Comida</strong></div>
+      <div><strong>Cantidad</strong></div>
+      <div><strong>Entrega</strong></div>
+      <div><strong>Estado</strong></div>
+      <div><strong>Comentario</strong></div>
     </div>
-    <div class="acciones">
-        <button class="boton-menu">Realizar Menu de Mañana</button>
-        <p class="proxima-entrega">
-          PRÓXIMA ENTREGA: <span>14/05/2025</span>
-        </p>
-      </div>
+
+    <!-- Cada orden -->
+    <div class="row-row" *ngFor="let orden of ordenes">
+      <div>{{ orden.food.name }}</div>
+      <div>{{ orden.quantity }}</div>
+      <div>{{ orden.deliveryDate }}</div>
+      <div>{{ orden.status }}</div>
+      <div>{{ orden.comment }}</div>
+    </div>
+  </div>
+
+  <div class="acciones">
+    <button class="boton-menu">Realizar Menú de Mañana</button>
+    <p class="proxima-entrega">
+      PRÓXIMA ENTREGA: <span>14/05/2025</span>
+    </p>
+  </div>
 </div>
+
