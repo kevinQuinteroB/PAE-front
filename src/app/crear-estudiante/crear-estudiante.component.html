@@ -1,0 +1,39 @@
+<div>
+    <div class="modal">
+      <h3 class="titulo">Lista de Estudiantes</h3>
+  
+      <div class="lista">
+        <table class="tabla-estudiantes">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Correo</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Reemplaza este bloque con tu *ngFor -->
+            <tr *ngFor="let estudiante of estudiantes">
+              <td>{{ estudiante.id }}</td>
+              <td>{{ estudiante.nombre }}</td>
+              <td>{{ estudiante.apellido }}</td>
+              <td>{{ estudiante.correo }}</td>
+              <td>
+                <button class="btn-entrega" (click)="editarEstudiante(estudiante)">Editar</button>
+                <button class="btn-cancelar" (click)="eliminarEstudiante(estudiante.id)">Eliminar</button>
+              </td>
+            </tr>
+            <!-- Fin ngFor -->
+          </tbody>
+        </table>
+      </div>
+  
+      <div class="botones">
+        <button class="btn-entrega" (click)="abrirFormulario()">Agregar Nuevo</button>
+        <button class="btn-cancelar" (click)="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+  

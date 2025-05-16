@@ -1,0 +1,30 @@
+.tabla-estudiantes {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .tabla-estudiantes th,
+  .tabla-estudiantes td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  .tabla-estudiantes th {
+    background-color: #3a9132;
+    color: white;
+  }
+  
+  .tabla-estudiantes tr:hover {
+    background-color: #e6ffe6;
+  }
+  
+  .tabla-estudiantes td button {
+    margin-right: 5px;
+  }
+  

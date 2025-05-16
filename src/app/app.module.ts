@@ -23,6 +23,8 @@ import { InventarioColegioComponent } from './inventario-colegio/inventario-cole
 import { CrearProductoOperadorComponent } from './crear-producto-operador/crear-producto-operador.component';
 import { CrearInventarioOperadorComponent } from './crear-inventario-operador/crear-inventario-operador.component';
 import { CrearQuejaComponent } from './crear-queja/crear-queja.component';
+import { CrearEstudianteComponent } from './crear-estudiante/crear-estudiante.component';
+import { FormularioEstudianteComponent } from './formulario-estudiante/formulario-estudiante.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { CrearQuejaComponent } from './crear-queja/crear-queja.component';
     InventarioColegioComponent,
     CrearProductoOperadorComponent,
     CrearInventarioOperadorComponent,
-    CrearQuejaComponent
+    CrearQuejaComponent,
+    CrearEstudianteComponent,
+    FormularioEstudianteComponent
   ],
   imports: [
     BrowserModule,
