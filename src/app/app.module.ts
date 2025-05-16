@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -25,6 +26,7 @@ import { CrearInventarioOperadorComponent } from './crear-inventario-operador/cr
 import { CrearQuejaComponent } from './crear-queja/crear-queja.component';
 import { CrearEstudianteComponent } from './crear-estudiante/crear-estudiante.component';
 import { FormularioEstudianteComponent } from './formulario-estudiante/formulario-estudiante.component';
+
 
 @NgModule({
   declarations: [
