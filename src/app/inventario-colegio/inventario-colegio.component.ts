@@ -29,6 +29,7 @@ constructor(
   this.userService.listarInventarioColegio(this.colegioRegistrado.token ,this.colegioRegistrado.id).subscribe(
     (data: InventarioColegio[]) => {
       this.inventario = data;
+      console.log(this.inventario)
     },
     (error) => {
       console.error('Error al obtener inventario:', error);
@@ -76,9 +77,10 @@ constructor(
 }
 
   recargarInventarioColegio(){
-  this.userService.listarInventarioOperador(this.colegioRegistrado.token ,this.colegioRegistrado.id).subscribe(
+  this.userService.listarInventarioColegio(this.colegioRegistrado.token ,this.colegioRegistrado.id).subscribe(
     (data: InventarioColegio[]) => {
       this.inventario = data;
+      console.log(this.inventario)
     },
     (error) => {
       console.error('Error al obtener inventario:', error);

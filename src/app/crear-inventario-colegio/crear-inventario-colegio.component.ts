@@ -64,8 +64,8 @@ filtrarDescripciones() {
 crearObjetoInventario() {
   if (this.descripcionSeleccionada) {
     const nuevoInventario = {
-      logistics: {
-        idUser: 2  // Aquí puedes asignar el ID del usuario de logística
+      school: {
+        idUser: 2 // Aquí puedes asignar el ID del usuario de logística
       },
       food: {
         idFood: this.descripcionSeleccionada.idFood,  // ID del alimento
