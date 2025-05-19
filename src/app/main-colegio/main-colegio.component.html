@@ -6,16 +6,16 @@
       <app-colegio-busqueda *ngIf="isActive('colegio-busqueda')"></app-colegio-busqueda>
       <app-quejas-colegio *ngIf="isActive('quejas-colegio')"></app-quejas-colegio>
       <app-inventario-colegio *ngIf="isActive('inventario-colegio')"></app-inventario-colegio>
-
+      <app-crear-estudiante *ngIf="isActive('crear-estudiante')"></app-crear-estudiante>
     </div>  
 </div>
 <div class="deslizador" id="deslizador" #deslizador>
     <img id="closeButton" class="close-button" src="assets/logo_X.png" #closeButton>
     <div class="texto-dislizador">
-        <h3 class="nombre-operador">{{colegioRegistrado.username}} </h3>
+        <h3 class="nombre-operador">Nombre <br> Colegio</h3>
         <h5 (click)="closeActiveComponent()" class="opciones-deslizador">Inicio</h5>
         <h5 (click)="setActiveComponent('inventario-colegio')" class="opciones-deslizador">Inventario</h5>
-        <h5 (click)="setActiveComponent('quejas-operador')" class="opciones-deslizador">Estudiantes</h5>
+        <h5 (click)="setActiveComponent('crear-estudiante')" class="opciones-deslizador">Estudiantes</h5>
         <h5 (click)="setActiveComponent('quejas-colegio')" class="opciones-deslizador">Realizar Queja</h5>
     </div>
     <button class="btn-salir" (click)="salir()">SALIR</button>

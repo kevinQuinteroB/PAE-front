@@ -1,0 +1,72 @@
+/* Ajustes Componentes */
+
+.componente {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    height: 80vh;
+    width: 80vw;
+  }
+  
+  .grid-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 160px;                            /* mismo gap que referencia */
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .row-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .resultados {
+    margin-top: 15px;
+    flex-grow: 1;
+    border-radius: 35px;
+    background-color: azure;
+    padding: 25px 40px;
+    overflow-y: auto;
+  }
+  
+  /* Títulos */
+  .encabezado {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: #62c669;
+    font-weight: bold;
+  }
+  
+  /* Acciones / Botón */
+  .acciones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .boton-menu {
+    background-color: azure;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #62c669;
+    cursor: pointer;
+  }
+  
+  .boton-menu:active {
+    background-color: #c9c9c9;
+  }
+  
+  /* Mensaje cuando no hay estudiantes */
+  .resultados > div[ng-reflect-ng-if="true"] {
+    color: #62c669;
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
