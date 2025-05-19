@@ -1,29 +1,39 @@
-<p>crear-estudiante works!</p>
 <div class="componente">
-    <h1 style="color:white">ESTUDIANTES</h1>
-  
-    <div class="resultados">
-      <div class="encabezado grid-row">
-        <div><strong>Nombre</strong></div>
-        <div><strong>Apellido</strong></div>
-        <div><strong>Grado</strong></div>
-      </div>
-  
-      <!-- Cada estudiante -->
-      <div class="row-row" *ngFor="let estudiante of estudiantes">
-        <div>{{ estudiante.name }}</div>
-        <div>{{ estudiante.lastName }}</div>
-        <div>{{ estudiante.grade }}</div>
-      </div>
-      
-  
-      <div *ngIf="estudiantes.length === 0" style="color: white; margin-top: 20px;">
-        No hay estudiantes para mostrar.
+  <h1 style="color:white">ESTUDIANTES</h1>
+
+  <!-- Formulario para crear o editar -->
+  <form (ngSubmit)="guardarEstudiante()" #form="ngForm" class="formulario">
+    <input type="text" placeholder="Nombre" name="name" [(ngModel)]="estudianteActual.name" required />
+    <input type="text" placeholder="Apellido" name="lastName" [(ngModel)]="estudianteActual.lastName" required />
+    <input type="text" placeholder="Grado" name="grade" [(ngModel)]="estudianteActual.grade" required />
+    <button type="submit">{{ editando ? 'Actualizar' : 'Crear' }}</button>
+    <button type="button" (click)="cancelarEdicion()" *ngIf="editando">Cancelar</button>
+  </form>
+
+  <div class="resultados">
+    <div class="encabezado grid-row">
+      <div><strong>Nombre</strong></div>
+      <div><strong>Apellido</strong></div>
+      <div><strong>Grado</strong></div>
+      <div><strong>Acciones</strong></div>
+    </div>
+
+    <div class="row-row" *ngFor="let estudiante of estudiantes">
+      <div>{{ estudiante.name }}</div>
+      <div>{{ estudiante.lastName }}</div>
+      <div>{{ estudiante.grade }}</div>
+      <div>
+        <button (click)="editarEstudiante(estudiante)">Editar</button>
+        <button *ngIf="estudiante.id !== undefined" (click)="eliminarEstudiante(estudiante.id!)">Eliminar</button>
       </div>
     </div>
-  
-    <div class="acciones">
-      <button class="boton-menu" (click)="cargarEstudiantes()">Actualizar Lista</button>
+
+    <div *ngIf="estudiantes.length === 0" style="color: white; margin-top: 20px;">
+      No hay estudiantes para mostrar.
     </div>
   </div>
-  
+
+  <div class="acciones">
+    <button class="boton-menu" (click)="cargarEstudiantes()">Actualizar Lista</button>
+  </div>
+</div>

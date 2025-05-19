@@ -14,13 +14,14 @@ export class EstudianteService {
 
   private crearHeaders(token: string): HttpHeaders {
     return new HttpHeaders({
-      Authorization: `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
     });
   }
 
-  obtenerEstudiantes(token: string, id: number): Observable<Estudiante[]> {
+  obtenerEstudiantes(token: string, schoolId: number): Observable<Estudiante[]> {
     const headers = this.crearHeaders(token);
-    return this.http.get<Estudiante[]>(`${this.apiUrl}/list/${id}`, { headers });
+    return this.http.get<Estudiante[]>(`${this.apiUrl}/list/${schoolId}`, { headers });
   }
 
   crearEstudiante(estudiante: Estudiante, token: string): Observable<Estudiante> {
@@ -30,7 +31,7 @@ export class EstudianteService {
 
   actualizarEstudiante(estudiante: Estudiante, token: string): Observable<Estudiante> {
     const headers = this.crearHeaders(token);
-    return this.http.post<Estudiante>(`${this.apiUrl}/update`, estudiante, { headers });
+    return this.http.put<Estudiante>(`${this.apiUrl}/update/${estudiante.id}`, estudiante, { headers });
   }
 
   eliminarEstudiante(id: number, token: string): Observable<void> {
