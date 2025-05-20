@@ -1,11 +1,10 @@
 export class InventarioColegio {
 
-        idInventoryOperator!: number;
-    school!: {
-        idUser: number;
- 
-    };
-    food!: {
+  idInventorySchool?: number; // opcional para POST
+  school!: {
+    idUser: number;
+  };
+  food!: {
         idFood: number;
         user: {
         idUser: number;
@@ -18,7 +17,7 @@ export class InventarioColegio {
         name: string;
         description: string;
         type: string;
-    };
-    expirationDate!: string;  // Fecha de expiración en formato "YYYY-MM-DD"
-    quantity!: number;
+  };
+  expirationDate!: string; // formato "YYYY-MM-DD"
+  quantity!: number;
 }

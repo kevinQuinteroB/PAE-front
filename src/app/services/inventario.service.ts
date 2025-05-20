@@ -38,8 +38,9 @@ export class InventarioService {
     'Authorization': `Bearer ${token}`
   });
   console.log(token)
-  return this.HttpClient.post(`${this.api}/inventaryoperator/create`, inventario, { headers });
+  return this.HttpClient.post(`${this.api}/inventoryschool/create`, inventario, { headers });
 }
+
 
 crearOrden(pedido: Pedido, token: string){
   const headers = new HttpHeaders({
