@@ -2,34 +2,35 @@
 
 
 
-
+.boton-recibido {
+  background-color: #c9c9c9;  /* gris claro */
+  color: #666666;             /* texto gris oscuro */
+  cursor: not-allowed;        /* cursor no permitido */
+  pointer-events: none;       /* no permite clicks */
+  border: none;
+  font-weight: normal;
+}
 .componente{
     display: flex;
     flex-direction: column;
     margin-top: 30px;
     height: 80vh;
     width: 80vw;
+    overflow-y: auto;
 }
 
-.grid-row {
+.grid-row, .row-row {
   display: grid;
-  grid-template-columns: repeat(5, 4fr); /* 5 columnas iguales */
-  gap: 160px;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-.row-row {
-  display: grid;
-  grid-template-columns: repeat(5, 4fr); /* 5 columnas iguales */
+  grid-template-columns: 1fr 1fr 1.5fr 1fr 3fr 1fr; /* ajusta el ancho relativo de cada columna */
   gap: 10px;
   padding: 10px;
   border-bottom: 1px solid #ccc;
+  align-items: center; /* para centrar verticalmente el contenido */
 }
 
 .resultados{
     margin-top: 15px;
     flex-grow: 1;
-
     border-radius: 35px;
     background-color: azure;
     padding: 25px 40px;
@@ -37,10 +38,10 @@
 
 
 .encabezado{
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    color: #62c669;
+  font-weight: bold;
+  color: #62c669;
+  background-color: #f5f5f5;
+  border-radius: 10px;
 }
 .colegio{flex: 6;}
 .Cantidad{ flex: 3;}

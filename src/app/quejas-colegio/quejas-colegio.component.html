@@ -17,7 +17,9 @@
     <div class="grid-row" *ngFor="let queja of quejas">
       <div>{{ queja.school.idUser }}</div>
       <div>{{ queja.order.idOrder }}</div>
-      <div>{{ queja.comment }}</div>
+      <div title="{{ queja.comment }}" class="comentario-limitado">
+  {{ queja.comment }}
+</div>
       <div>{{ queja.status }}</div>
     </div>
   </div>

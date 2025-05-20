@@ -20,4 +20,11 @@ export class OrderService {
 
     return this.http.post<Order>(`${this.api}/create`, order, { headers });
   }
+  updateOrder(order: Order, token: string): Observable<Order> {
+        const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+    return this.http.put<Order>(`${this.api}/update`, order,{ headers });
+  }
 }

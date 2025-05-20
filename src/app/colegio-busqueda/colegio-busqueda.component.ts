@@ -4,6 +4,7 @@ import { QuejaService } from '../services/queja.service';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import { Order } from '../models/order';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-colegio-busqueda',
@@ -19,6 +20,7 @@ export class ColegioBusquedaComponent {
 constructor(
     private quejaService: QuejaService,
     private userService: UserService, 
+    private ordenServide:OrderService
   ){}
 
 
@@ -35,6 +37,25 @@ constructor(
             }
   );
     
+  }
+actualizarEstado(ordenes: Order) {
+    // Cambiar el estado local
+    ordenes.status = 'RECIBIDA';
+
+    // Enviar la orden actualizada al backend para persistir
+    this.ordenServide.updateOrder(ordenes,this.colegioRegistrado.token).subscribe({
+      next: (orderActualizada) => {
+        console.log('Orden actualizada:', orderActualizada);
+        // Opcionalmente actualizar la orden local con la respuesta
+        Object.assign(ordenes, orderActualizada);
+      },
+      error: (err) => {
+        console.error('Error al actualizar orden:', err);
+        alert('No se pudo actualizar el estado, intenta de nuevo.');
+        // Revertir cambio local si hay error
+        ordenes.status = 'enviada'; // o estado anterior guardado
+      }
+    });
   }
 
 }

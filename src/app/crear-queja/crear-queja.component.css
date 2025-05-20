@@ -1,7 +1,8 @@
 
 .modal {
-    height: 360px;
-    width: 100px;
+    height: auto;  /* Cambiado para que crezca según contenido */
+    max-height: 450px;
+    width: 500px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -10,9 +11,9 @@
     padding: 20px;
     border-radius: 8px;
     border: 2px solid rgb(173, 173, 173);
-    z-index: 1000; /* Asegúrate de que el modal esté encima del fondo */
-    width: 500px;
-    display: block; /* Asegúrate de que el modal esté visible cuando 'pedido' sea true */
+    z-index: 1000;
+    display: block;
+    overflow-y: auto;
 }
 
 /* Título del modal */
@@ -190,4 +191,29 @@
 .campo-fecha input.input-date:focus {
   border-color: #007bff;
   outline: none;
+}
+/* Selector más limpio y con mejor padding */
+.input-select {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Mejora el label de orden */
+label[for="orden"] {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Ajuste para el contenedor de fila-queja para que los elementos se distribuyan verticalmente */
+.fila-queja {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
