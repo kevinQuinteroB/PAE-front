@@ -37,7 +37,9 @@
         </div>
 
         <div class="botones">
-        <button class="btn-entrega" (click)="crearObjetoInventario()">Guardar</button>
+        <button class="btn-entrega" (click)="inventarioParaEditar ? actualizarInventario() : crearObjetoInventario()">
+  {{ inventarioParaEditar ? 'Actualizar' : 'Guardar' }}
+</button>
         <button class="btn-cancelar" (click)="cerrarModal()">Cerrar</button>
         </div>
     </div>

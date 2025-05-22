@@ -18,7 +18,7 @@
       <div>{{ orden.deliveryDate }}</div>
       <div>{{ orden.status }}</div>
       <div>{{ orden.comment }}</div>
-      <div>    <button  class="boton-recibido" (click)="actualizarEstado(orden)" [disabled]="orden.status === 'RECIBIDA'">Recibida</button>
+      <div>    <button  (click)="actualizarEstado(orden)" [disabled]="orden.status === 'RECIBIDA'">Recibida</button>
     </div>
   </div>
 

@@ -20,9 +20,12 @@ constructor(
   colegioRegistrado!: User;
   inventario!:  InventarioColegio[];
   comida!: Food[];
+  crearinventario: boolean = false;
+  inventarioParaEditar: InventarioColegio | null = null;
+
 
   pedido: boolean = false;
-  crearinventario: boolean = false;
+  
 
   ngOnInit(){
   this.colegioRegistrado = this.userService.getUser();
@@ -52,7 +55,11 @@ constructor(
   hacerPedido(){
   this.pedido = true;
   }
-
+abrirFormularioCreacion() {
+   this.pedido = true;
+  this.inventarioParaEditar = null;  // No hay inventario a editar
+  this.crearinventario = true;
+}
   crearInventario(){
   this.crearinventario = true;
   }

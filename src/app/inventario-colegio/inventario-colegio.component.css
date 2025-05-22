@@ -8,6 +8,14 @@
     border-radius: 35px;
     padding: 25px;
 }
+.boton-recibido {
+  background-color: #c9c9c9;  /* gris claro */
+  color: #666666;             /* texto gris oscuro */
+  cursor: not-allowed;        /* cursor no permitido */
+  pointer-events: none;       /* no permite clicks */
+  border: none;
+  font-weight: normal;
+}
 
 .titulo-quejas {
     color: #62c669;
@@ -24,23 +32,16 @@
 }
 
 .grid-header, .grid-row {
-    display: grid;
-    grid-template-columns: 2fr 5fr 2fr 2fr 2fr;
-    gap: 10px;
-    padding: 10px 0;
-    align-items: center;
-    text-align: center;
+  display: grid;
+  grid-template-columns: 2fr 4fr 3fr 2fr 3fr 1fr; /* ajusta el ancho relativo de cada columna */
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  align-items: center; /* para centrar verticalmente el contenido */
 }
 
-.grid-header {
-    font-weight: bold;
-    color: #62c669;
-    border-bottom: 2px solid #62c669;
-}
 
-.grid-row {
-    border-bottom: 1px solid #ccc;
-}
+
 
 .butones{
     display: flex;

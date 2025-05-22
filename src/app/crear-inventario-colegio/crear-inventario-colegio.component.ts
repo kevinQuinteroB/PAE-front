@@ -1,9 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
 import { Food } from '../models/food';
 import { User } from '../models/user';
 import { InventarioService } from '../services/inventario.service';
 import { UserService } from '../services/user.service';
 import { Inventario } from '../models/inventario';
+import { InventarioColegio } from '../models/inventario-colegio';
+import { SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-crear-inventario-colegio',
@@ -11,11 +13,13 @@ import { Inventario } from '../models/inventario';
   templateUrl: './crear-inventario-colegio.component.html',
   styleUrl: './crear-inventario-colegio.component.css'
 })
-export class CrearInventarioColegioComponent {
+export class CrearInventarioColegioComponent implements OnInit,OnChanges {
 
-    @Input() alimentosDisponibles: Food[] = [];  // Array con los alimentos disponibles
+  @Input() alimentosDisponibles: Food[] = [];  // Array con los alimentos disponibles
   @Output() cerrar = new EventEmitter<void>();
   @Output() inventarioCreado = new EventEmitter<void>();
+  @Input() inventarioParaEditar: InventarioColegio | null = null;
+
 
   productoSeleccionado: string = '';  // Producto seleccionado
   descripcionSeleccionada: Food | null = null;
@@ -23,7 +27,6 @@ export class CrearInventarioColegioComponent {
   descripcionesDisponibles: Food[] = [];  // Descripciones disponibles para el producto seleccionado
   productosUnicos: string[] = [];  // Lista de productos únicos (sin duplicados)
   colegioResgistrado!: User;
-
   cantidad: number = 1;
   fecha: string = '';  // Variable para almacenar la fecha seleccionada
   hoy: string = new Date().toISOString().split('T')[0];
@@ -36,7 +39,49 @@ export class CrearInventarioColegioComponent {
     ngOnInit() {
       this.colegioResgistrado = this.userService.getUser();
       this.obtenerProductosUnicos();
+
+      
     }
+
+ngOnChanges(changes: SimpleChanges) {
+  if (
+    this.inventarioParaEditar &&
+    this.alimentosDisponibles.length > 0
+  ) {
+    this.productoSeleccionado = this.inventarioParaEditar.food.name;
+    this.filtrarDescripciones();
+    this.descripcionSeleccionada = this.descripcionesDisponibles.find(
+      d => d.idFood === this.inventarioParaEditar?.food.idFood
+    ) || null;
+    this.fecha = this.inventarioParaEditar.expirationDate;
+    this.cantidad = this.inventarioParaEditar.quantity;
+  }
+}
+    actualizarInventario() {
+  if (this.descripcionSeleccionada && this.inventarioParaEditar) {
+    const inventarioActualizado = {
+      ...this.inventarioParaEditar,
+      food: {
+        idFood: this.descripcionSeleccionada.idFood,
+        description: this.descripcionSeleccionada.description
+      },
+      expirationDate: this.fecha,
+      quantity: this.cantidad
+    };
+
+    this.inventarioService.actualizarInventario(inventarioActualizado, this.colegioResgistrado.token).subscribe({
+      next: (res) => {
+        console.log('Inventario actualizado:', res);
+        this.inventarioCreado.emit(); // También puedes emitir un evento "actualizado"
+        this.cerrar.emit();
+      },
+      error: (err) => {
+        console.error('Error al actualizar:', err);
+      }
+    });
+  }
+}
+
      // Método para obtener los productos únicos
   obtenerProductosUnicos() {
     const nombresProductos = this.alimentosDisponibles.map(food => food.name);
