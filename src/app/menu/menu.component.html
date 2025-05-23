@@ -26,10 +26,26 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="alimentos">Alimentos</label>
-            <select multiple class="form-control" id="alimentos" [(ngModel)]="nuevoMenu.alimentos" name="alimentos" required>
-              <option *ngFor="let alimento of alimentosDisponibles" [ngValue]="{ idFood: alimento.idFood }">{{ alimento.name || alimento.idFood }}</option>
+            <label for="alimentos">Alimentos (máximo 5)</label>
+            <select
+              multiple
+              class="form-control"
+              id="alimentos"
+              [(ngModel)]="nuevoMenu.alimentos"
+              name="alimentos"
+              required
+            >
+              <option
+                *ngFor="let alimento of alimentosDisponibles"
+                [ngValue]="{ idFood: alimento.idFood }"
+                [disabled]="isAlimentoDisabled(alimento)"
+              >
+                {{ alimento.name || alimento.idFood }}
+              </option>
             </select>
+            <small class="form-text text-muted">
+              Selecciona hasta {{ maxAlimentos }} alimentos. Actualmente seleccionados: {{ nuevoMenu.alimentos.length }}.
+            </small>
           </div>
         </form>
       </div>

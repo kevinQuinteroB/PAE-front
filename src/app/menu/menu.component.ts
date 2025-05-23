@@ -19,6 +19,7 @@ export class MenuComponent implements OnInit {
     school: { idUser: 0 },
     alimentos: []
   };
+  maxAlimentos: number = 5; // Maximum number of foods allowed
 
   constructor(
     private userService: UserService,
@@ -71,6 +72,10 @@ export class MenuComponent implements OnInit {
       alert('Por favor, selecciona al menos un alimento.');
       return;
     }
+    if (this.nuevoMenu.alimentos.length > this.maxAlimentos) {
+      alert(`No puedes seleccionar más de ${this.maxAlimentos} alimentos.`);
+      return;
+    }
 
     this.menuService.createMenu(this.nuevoMenu, this.colegioRegistrado.token).subscribe({
       next: (res: Menu) => {
@@ -82,7 +87,7 @@ export class MenuComponent implements OnInit {
         console.error('Error al crear menú:', err);
         alert('Error al crear menú. Por favor, intenta de nuevo.');
       }
-  });
+    });
   }
 
   getAlimentosDisplay(menu: Menu): string {
@@ -92,5 +97,12 @@ export class MenuComponent implements OnInit {
         return food?.name || a.idFood;
       })
       .join(', ');
+  }
+
+  isAlimentoDisabled(alimento: Food): boolean {
+    return (
+      this.nuevoMenu.alimentos.length >= this.maxAlimentos &&
+      !this.nuevoMenu.alimentos.some(a => a.idFood === alimento.idFood)
+    );
   }
 }
