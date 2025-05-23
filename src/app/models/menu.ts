@@ -1,14 +1,13 @@
-export class Menu {
-    idMenu?: number;  // Puedes cambiar el nombre si tu backend devuelve otro ID
-
-  school!: {
-    idUser: number; // Representa la relación ManyToOne con User
+export interface Menu {
+  idMenu?: number;
+  school: {
+    idUser: number;
   };
-
-  alimentos!: {
+  alimentos: {
     idFood: number;
-    name: string;
-    description: string;
-    type: string;
-  }[]; // Lista de alimentos (ManyToMany)
+  }[];
+}
+export interface Food {
+  idFood: number;
+  name?: string; // Optional, for display in the form
 }

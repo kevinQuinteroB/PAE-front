@@ -1,1 +1,43 @@
-<p>menu works!</p>
+<div class="componente">
+  <h2 class="titulo-quejas">Menús</h2>
+  <div class="resultados">
+    <div class="grid-header">
+      <div>ID</div>
+      <div>Alimentos</div>
+    </div>
+    <div class="grid-row" *ngFor="let menu of menus">
+      <div>{{ menu.idMenu }}</div>
+      <div>{{ getAlimentosDisplay(menu) }}</div>
+    </div>
+  </div>
+  <div class="butones">
+    <button type="button" class="btn btn-success" (click)="abrirModal()">Agregar Menú</button>
+  </div>
+
+  <!-- Modal -->
+  <div class="hacar-pedido" *ngIf="showModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Crear Menú</h5>
+        <button type="button" class="close" (click)="cerrarModal()">
+          <span>×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="alimentos">Alimentos</label>
+            <select multiple class="form-control" id="alimentos" [(ngModel)]="nuevoMenu.alimentos" name="alimentos" required>
+              <option *ngFor="let alimento of alimentosDisponibles" [ngValue]="{ idFood: alimento.idFood }">{{ alimento.name || alimento.idFood }}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+        <button type="button" class="btn btn-success" (click)="crearMenu()">Guardar</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show" *ngIf="showModal"></div>
+</div>

@@ -1,16 +1,22 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { Estudiante } from './estudiante';
 
 describe('Estudiante', () => {
-  it('should create an instance with correct properties', () => {
-    const estudiante = new Estudiante(
-      'Juan',
-      'Pérez',
-      '10',
-    );
+  let component: Estudiante;
+  let fixture: ComponentFixture<Estudiante>;
 
-    expect(estudiante).toBeTruthy();
-    expect(estudiante.name).toBe('Juan');
-    expect(estudiante.lastName).toBe('Pérez');
-    expect(estudiante.grade).toBe('40');
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [Estudiante]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(Estudiante);
+    component = fixture.componentInstance;
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });

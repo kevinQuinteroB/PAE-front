@@ -1,21 +1,53 @@
-<div class="container mt-4">
-  <h2>Lista de Estudiantes</h2>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Grado</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let estudiante of estudiantes">
-        <td>{{ estudiante.id }}</td>
-        <td>{{ estudiante.name }}</td>
-        <td>{{ estudiante.lastName }}</td>
-        <td>{{ estudiante.grade }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="componente">
+  <h2 class="titulo-quejas">Estudiantes</h2>
+  <div class="resultados">
+    <div class="grid-header">
+      <div>ID</div>
+      <div>Nombre</div>
+      <div>Apellido</div>
+      <div>Grado</div>
+    </div>
+    <div class="grid-row" *ngFor="let estudiante of estudiantes">
+      <div>{{ estudiante.id }}</div>
+      <div>{{ estudiante.name }}</div>
+      <div>{{ estudiante.lastName }}</div>
+      <div>{{ estudiante.grade }}</div>
+    </div>
+  </div>
+  <div class="butones">
+    <button type="button" class="btn btn-success" (click)="abrirModal()">Agregar Estudiante</button>
+  </div>
+
+  <!-- Modal -->
+  <div class="hacar-pedido" *ngIf="showModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Crear Estudiante</h5>
+        <button type="button" class="close" (click)="cerrarModal()">
+          <span>×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="nuevoEstudiante.name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Apellido</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="nuevoEstudiante.lastName" name="lastName" required>
+          </div>
+          <div class="form-group">
+            <label for="grade">Grado</label>
+            <input type="text" class="form-control" id="grade" [(ngModel)]="nuevoEstudiante.grade" name="grade" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+        <button type="button" class="btn btn-success" (click)="crearEstudiante()">Guardar</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show" *ngIf="showModal"></div>
 </div>

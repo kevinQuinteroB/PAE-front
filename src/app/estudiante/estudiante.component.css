@@ -1,0 +1,73 @@
+.componente {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  height: 80vh;
+  width: 80vw;
+  background-color: azure;
+  border-radius: 35px;
+  padding: 25px;
+}
+
+.titulo-quejas {
+  color: #62c669;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.resultados {
+  margin-top: 5px;
+  flex-grow: 1;
+  border-radius: 35px;
+  background-color: azure;
+  padding: 10px 15px;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+}
+
+.grid-header, .grid-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr; /* Adjusted for 4 columns: ID, Name, Last Name, Grade */
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+}
+
+.grid-header {
+  font-weight: bold;
+  background-color: #f1f1f1;
+}
+
+.butones {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.butones button {
+  flex: 1;
+}
+
+.hacar-pedido {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}

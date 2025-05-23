@@ -66,7 +66,9 @@ export class MainColegioComponent implements AfterViewInit {
     closeActiveComponent(){
       this.activeComponent = "colegio-busqueda";
     }
-  
+    goToMenu() {
+    this.router.navigate(['/menu']);
+  }
     /* SALIR DE LA SESION */
   
     salir() {
