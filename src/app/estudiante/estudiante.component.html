@@ -6,6 +6,7 @@
       <div>Nombre</div>
       <div>Apellido</div>
       <div>Grado</div>
+      <div>Menú</div>
       <div>Acciones</div>
     </div>
     <div class="grid-row" *ngFor="let estudiante of estudiantes">
@@ -13,6 +14,9 @@
       <div>{{ estudiante.name }}</div>
       <div>{{ estudiante.lastName }}</div>
       <div>{{ estudiante.grade }}</div>
+       <div>
+          <input type="checkbox">
+        </div>
       <div>
         <button type="button" class="btn btn-danger btn-sm" (click)="eliminarEstudiante(estudiante)">Eliminar</button>
       </div>
