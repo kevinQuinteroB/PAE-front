@@ -26,7 +26,7 @@ import { CrearQuejaComponent } from './crear-queja/crear-queja.component';
 import { MenuComponent } from './menu/menu.component';
 import { CrearInventarioColegioComponent } from './crear-inventario-colegio/crear-inventario-colegio.component';
 import { CrearProductoColegioComponent } from './crear-producto-colegio/crear-producto-colegio.component';
-import { CrearEstudianteComponent } from './crear-estudiante/crear-estudiante.component';
+import { EstudianteComponent } from './estudiante/estudiante.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { CrearEstudianteComponent } from './crear-estudiante/crear-estudiante.co
     MenuComponent,
     CrearInventarioColegioComponent,
     CrearProductoColegioComponent,
-    CrearEstudianteComponent
+    EstudianteComponent
   ],
   imports: [
     BrowserModule,

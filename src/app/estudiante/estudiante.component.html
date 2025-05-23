@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h2>Lista de Estudiantes</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Grado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of estudiantes">
+        <td>{{ estudiante.id }}</td>
+        <td>{{ estudiante.name }}</td>
+        <td>{{ estudiante.lastName }}</td>
+        <td>{{ estudiante.grade }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
