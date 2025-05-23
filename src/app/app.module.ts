@@ -11,7 +11,6 @@ import { InfoColegioOperadorComponent } from './info-colegio-operador/info-coleg
 import { MainColegioComponent } from './main-colegio/main-colegio.component';
 import { ColegioBusquedaComponent } from './colegio-busqueda/colegio-busqueda.component';
 import { QuejasColegioComponent } from './quejas-colegio/quejas-colegio.component';
-import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { EncuestaColegioComponent } from './encuesta-colegio/encuesta-colegio.component';
 import { PedidoOperadorComponent } from './pedido-operador/pedido-operador.component';
 
@@ -39,7 +38,6 @@ import { EstudianteComponent } from './estudiante/estudiante.component';
     MainColegioComponent,
     ColegioBusquedaComponent,
     QuejasColegioComponent,
-    EstudiantesComponent,
     EncuestaColegioComponent,
     PedidoOperadorComponent,
     InventarioOperadorComponent,

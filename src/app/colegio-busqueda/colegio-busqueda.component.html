@@ -1,5 +1,4 @@
-
-  <h1 style="color:white">Ordenes</h1>
+<h1 style="color:white">Ordenes</h1>
 <div class="componente">
   <div class="resultados">
     <div class="encabezado grid-row">
@@ -12,21 +11,42 @@
     </div>
 
     <!-- Cada orden -->
-    <div class="row-row" *ngFor="let orden of ordenes">
+    <div class="grid-row" *ngFor="let orden of ordenes">
       <div>{{ orden.food.name }}</div>
       <div>{{ orden.quantity }}</div>
       <div>{{ orden.deliveryDate }}</div>
       <div>{{ orden.status }}</div>
       <div>{{ orden.comment }}</div>
-      <div>    <button  (click)="actualizarEstado(orden)" [disabled]="orden.status === 'RECIBIDA'">Recibida</button>
+      <div>
+        <button
+          (click)="actualizarEstado(orden)"
+          [ngClass]="{'boton-recibido': orden.status === 'RECIBIDA'}"
+          [disabled]="orden.status === 'RECIBIDA'"
+        >Recibida</button>
+      </div>
     </div>
   </div>
 
   <div class="acciones">
-    <button class="boton-menu" routerLink="/menu">Realizar Menú de Mañana</button>
+    <button class="boton-menu" (click)="abrirMenuModal()">Realizar Menú de Mañana</button>
     <p class="proxima-entrega">
       PRÓXIMA ENTREGA: <span>14/05/2025</span>
     </p>
   </div>
-</div>
 
+  <!-- Modal for MenuComponent -->
+  <div class="hacar-pedido" *ngIf="showMenuModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Gestión de Menús</h5>
+        <button type="button" class="close" (click)="cerrarMenuModal()">
+          <span>×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-menu></app-menu>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show" *ngIf="showMenuModal"></div>
+</div>

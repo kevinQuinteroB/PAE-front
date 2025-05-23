@@ -16,7 +16,7 @@ export class ColegioBusquedaComponent {
   user: User | null = null;
   ordenes: Order[] = [];
   token!: string;
-
+  showMenuModal: boolean = false;
 constructor(
     private quejaService: QuejaService,
     private userService: UserService, 
@@ -57,5 +57,11 @@ actualizarEstado(ordenes: Order) {
       }
     });
   }
+  abrirMenuModal() {
+    this.showMenuModal = true;
+  }
 
+  cerrarMenuModal() {
+    this.showMenuModal = false;
+  }
 }

@@ -1,43 +1,64 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Estudiante } from '../models/estudiante';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EstudianteService {
-  private apiUrl = 'http://localhost:8080/student'; // Adjust the base URL as needed
+  private apiUrl = 'http://localhost:8080/student';
 
   constructor(private http: HttpClient) {}
 
-  // List students for a specific school (user)
   listarEstudiantesPorEscuela(token: string, idUser: number): Observable<Estudiante[]> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.http.get<Estudiante[]>(`${this.apiUrl}/list/${idUser}`, { headers });
+    return this.http.get<any[]>(`${this.apiUrl}/list/${idUser}`, { headers }).pipe(
+      map(estudiantes => estudiantes.map(e => ({
+        id: e.idStudent,
+        name: e.name,
+        lastName: e.lastName,
+        grade: e.grade,
+        user: e.user
+      })))
+    );
   }
 
-  // Create a new student
   crearEstudiante(estudiante: Estudiante, token: string): Observable<Estudiante> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     });
-    return this.http.post<Estudiante>(`${this.apiUrl}/create`, estudiante, { headers });
+    return this.http.post<any>(`${this.apiUrl}/create`, estudiante, { headers }).pipe(
+      map(e => ({
+        id: e.idStudent,
+        name: e.name,
+        lastName: e.lastName,
+        grade: e.grade,
+        user: e.user
+      }))
+    );
   }
 
-  // Update an existing student
   actualizarEstudiante(estudiante: Estudiante, token: string): Observable<Estudiante> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     });
-    return this.http.post<Estudiante>(`${this.apiUrl}/update`, estudiante, { headers });
+    return this.http.post<any>(`${this.apiUrl}/update`, estudiante, { headers }).pipe(
+      map(e => ({
+        id: e.idStudent,
+        name: e.name,
+        lastName: e.lastName,
+        grade: e.grade,
+        user: e.user
+      }))
+    );
   }
 
-  // Delete a student by ID
   eliminarEstudiante(id: number, token: string): Observable<void> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`

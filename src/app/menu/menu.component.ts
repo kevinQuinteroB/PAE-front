@@ -90,6 +90,25 @@ export class MenuComponent implements OnInit {
     });
   }
 
+  eliminarMenu(menu: Menu) {
+    if (!menu.idMenu) {
+      console.error('Menú sin idMenu:', menu);
+      return;
+    }
+    if (confirm('¿Estás seguro de que deseas eliminar este menú?')) {
+      this.menuService.deleteMenu(menu.idMenu, this.colegioRegistrado.token).subscribe({
+        next: () => {
+          console.log('Menú eliminado:', menu.idMenu);
+          this.menus = this.menus.filter(m => m.idMenu !== menu.idMenu);
+        },
+        error: (err) => {
+          console.error('Error al eliminar menú:', err);
+          alert('Error al eliminar menú. Por favor, intenta de nuevo.');
+        }
+      });
+    }
+  }
+
   getAlimentosDisplay(menu: Menu): string {
     return menu.alimentos
       .map((a: { idFood: number }) => {

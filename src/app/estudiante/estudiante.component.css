@@ -28,7 +28,7 @@
 
 .grid-header, .grid-row {
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr 1fr; /* Adjusted for 4 columns: ID, Name, Last Name, Grade */
+  grid-template-columns: 1fr 2fr 2fr 1fr 1fr; /* Adjusted for 5 columns: ID, Nombre, Apellido, Grado, Acciones */
   gap: 10px;
   padding: 10px;
   border-bottom: 1px solid #ccc;
@@ -70,4 +70,9 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
 }

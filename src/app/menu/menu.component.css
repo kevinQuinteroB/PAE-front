@@ -28,7 +28,7 @@
 
 .grid-header, .grid-row {
   display: grid;
-  grid-template-columns: 1fr 4fr; /* Adjusted for 2 columns: ID, Alimentos */
+  grid-template-columns: 1fr 4fr 1fr; /* Adjusted for 3 columns: ID, Alimentos, Acciones */
   gap: 10px;
   padding: 10px;
   border-bottom: 1px solid #ccc;
@@ -70,4 +70,9 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
 }

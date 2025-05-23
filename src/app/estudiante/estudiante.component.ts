@@ -7,7 +7,7 @@ import { User } from '../models/user';
 @Component({
   selector: 'app-estudiante',
   templateUrl: './estudiante.component.html',
-  standalone:false,
+  standalone: false,
   styleUrls: ['./estudiante.component.css']
 })
 export class EstudianteComponent implements OnInit {
@@ -74,5 +74,24 @@ export class EstudianteComponent implements OnInit {
         alert('Error al crear estudiante. Por favor, intenta de nuevo.');
       }
     });
+  }
+
+  eliminarEstudiante(estudiante: Estudiante) {
+    if (!estudiante.id) {
+      console.error('Estudiante sin id:', estudiante);
+      return;
+    }
+    if (confirm('¿Estás seguro de que deseas eliminar este estudiante?')) {
+      this.estudianteService.eliminarEstudiante(estudiante.id, this.colegioRegistrado.token).subscribe({
+        next: () => {
+          console.log('Estudiante eliminado:', estudiante.id);
+          this.estudiantes = this.estudiantes.filter(e => e.id !== estudiante.id);
+        },
+        error: (err) => {
+          console.error('Error al eliminar estudiante:', err);
+          alert('Error al eliminar estudiante. Por favor, intenta de nuevo.');
+        }
+      });
+    }
   }
 }

@@ -4,10 +4,14 @@
     <div class="grid-header">
       <div>ID</div>
       <div>Alimentos</div>
+      <div>Acciones</div>
     </div>
     <div class="grid-row" *ngFor="let menu of menus">
       <div>{{ menu.idMenu }}</div>
       <div>{{ getAlimentosDisplay(menu) }}</div>
+      <div>
+        <button type="button" class="btn btn-danger btn-sm" (click)="eliminarMenu(menu)">Eliminar</button>
+      </div>
     </div>
   </div>
   <div class="butones">
