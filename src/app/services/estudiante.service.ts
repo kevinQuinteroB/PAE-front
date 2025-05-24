@@ -66,3 +66,4 @@ export class EstudianteService {
     return this.http.delete<void>(`${this.apiUrl}/delete/${id}`, { headers });
   }
 }
+
