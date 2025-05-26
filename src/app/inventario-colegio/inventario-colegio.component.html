@@ -7,7 +7,9 @@
             <div> Fecha Expiracion </div>
             <div> Tipo </div>
             <div> Cantidad </div>
-            <div>Acciones</div>
+            <div> Acciones</div>
+            
+     
         </div>
         <div class="grid-row" *ngFor="let comida of inventario">
             <div> {{comida.food.name}} </div>
@@ -15,7 +17,7 @@
             <div> {{comida.expirationDate}} </div>
             <div> {{comida.food.type}} </div>
             <div> {{comida.quantity}} </div>
-            <div> <button  class="btn btn-success" (click)="abrirFormularioCreacion()" >Actulizar</button>
+            <button type="button" class="btn btn-success" (click)="actulizacion(comida)" >Actulizar </button>
         </div>
     </div>
     <div class="butones">
@@ -31,9 +33,9 @@
     ></app-crear-producto-colegio>
 
     <app-crear-inventario-colegio
-    *ngIf="crearinventario"
+    *ngIf="actualizarinventario"
     [alimentosDisponibles]="comida"
-    [inventarioParaEditar]="inventarioParaEditar"
+    [inventarioEditado]="inventarioSeleccionado"
     (cerrar)="crearinventario = false"
     (inventarioCreado)="actualizarInventario()">
     </app-crear-inventario-colegio>

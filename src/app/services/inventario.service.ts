@@ -51,7 +51,6 @@ crearOrden(pedido: Pedido, token: string){
   actualizarInventario(inventario: Inventario, token: string): Observable<Inventario> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
     });
 
     return this.HttpClient.post<Inventario>(`${this.api}/update`, inventario, { headers });

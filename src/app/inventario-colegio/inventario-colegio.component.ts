@@ -21,10 +21,9 @@ constructor(
   inventario!:  InventarioColegio[];
   comida!: Food[];
   crearinventario: boolean = false;
-  inventarioParaEditar: InventarioColegio | null = null;
-
-
+  actualizarinventario = false
   pedido: boolean = false;
+  inventarioSeleccionado!:InventarioColegio
   
 
   ngOnInit(){
@@ -55,11 +54,10 @@ constructor(
   hacerPedido(){
   this.pedido = true;
   }
-abrirFormularioCreacion() {
-   this.pedido = true;
-  this.inventarioParaEditar = null;  // No hay inventario a editar
-  this.crearinventario = true;
-}
+  actulizacion(comida: InventarioColegio) {
+    this.actualizarinventario = true;
+   this.inventarioSeleccionado =  { ...comida };
+  }
   crearInventario(){
   this.crearinventario = true;
   }

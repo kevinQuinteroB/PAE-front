@@ -18,7 +18,8 @@ export class CrearInventarioColegioComponent implements OnInit,OnChanges {
   @Input() alimentosDisponibles: Food[] = [];  // Array con los alimentos disponibles
   @Output() cerrar = new EventEmitter<void>();
   @Output() inventarioCreado = new EventEmitter<void>();
-  @Input() inventarioParaEditar: InventarioColegio | null = null;
+  @Input() inventarioEditado!: InventarioColegio;
+
 
 
   productoSeleccionado: string = '';  // Producto seleccionado
@@ -45,22 +46,22 @@ export class CrearInventarioColegioComponent implements OnInit,OnChanges {
 
 ngOnChanges(changes: SimpleChanges) {
   if (
-    this.inventarioParaEditar &&
+    this.inventarioEditado &&
     this.alimentosDisponibles.length > 0
   ) {
-    this.productoSeleccionado = this.inventarioParaEditar.food.name;
+    this.productoSeleccionado = this.inventarioEditado.food.name;
     this.filtrarDescripciones();
     this.descripcionSeleccionada = this.descripcionesDisponibles.find(
-      d => d.idFood === this.inventarioParaEditar?.food.idFood
+      d => d.idFood === this.inventarioEditado?.food.idFood
     ) || null;
-    this.fecha = this.inventarioParaEditar.expirationDate;
-    this.cantidad = this.inventarioParaEditar.quantity;
+    this.fecha = this.inventarioEditado.expirationDate;
+    this.cantidad = this.inventarioEditado.quantity;
   }
 }
     actualizarInventario() {
-  if (this.descripcionSeleccionada && this.inventarioParaEditar) {
+  if (this.descripcionSeleccionada && this.inventarioEditado) {
     const inventarioActualizado = {
-      ...this.inventarioParaEditar,
+      ...this.inventarioEditado,
       food: {
         idFood: this.descripcionSeleccionada.idFood,
         description: this.descripcionSeleccionada.description
