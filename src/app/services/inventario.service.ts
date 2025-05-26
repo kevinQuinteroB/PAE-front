@@ -40,6 +40,13 @@ export class InventarioService {
   console.log(token)
   return this.HttpClient.post(`${this.api}/inventoryschool/create`, inventario, { headers });
 }
+  crearInventarioOperador(inventario: Inventario, token: string){
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+  console.log(token)
+  return this.HttpClient.post(`${this.api}/inventaryoperator/create`, inventario, { headers });
+}
 
 
 crearOrden(pedido: Pedido, token: string){

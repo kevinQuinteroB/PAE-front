@@ -79,7 +79,7 @@ crearObjetoInventario() {
 
     // Puedes hacer algo con el objeto creado, como enviarlo a un servicio
     // En CrearInventarioOperadorComponent
-this.inventarioService.crearInventario(nuevoInventario, this.operadorRegistrado.token).subscribe({
+this.inventarioService.crearInventarioOperador(nuevoInventario, this.operadorRegistrado.token).subscribe({
   next: (res) => {
     console.log('Alimento creado:', res);
     this.inventarioCreado.emit();  // Emitir evento para recargar inventario
