@@ -53,7 +53,7 @@ crearOrden(pedido: Pedido, token: string){
       'Authorization': `Bearer ${token}`,
     });
 
-    return this.HttpClient.post<Inventario>(`${this.api}/update`, inventario, { headers });
+    return this.HttpClient.post<Inventario>(`${this.api}/inventoryschool/update`, inventario, { headers });
   }
 
 }

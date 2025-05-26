@@ -12,7 +12,7 @@
 <div class="deslizador" id="deslizador" #deslizador>
     <img id="closeButton" class="close-button" src="assets/logo_X.png" #closeButton>
     <div class="texto-dislizador">
-        <h3 class="nombre-operador">{{colegioRegistrado.name}}</h3>
+        <h3 class="nombre-operador"> Colegio {{colegioRegistrado.username}}</h3>
         <h5 (click)="closeActiveComponent()" class="opciones-deslizador">Inicio</h5>
         <h5 (click)="setActiveComponent('inventario-colegio')" class="opciones-deslizador">Inventario</h5>
         <h5 (click)="setActiveComponent('crear-estudiante')" class="opciones-deslizador">Estudiantes</h5>
